@@ -417,7 +417,7 @@ function App() {
                                     target="_self"
                                 >
                                     <img
-                                        src="images/logo.png"
+                                        src="../public/logo.png"
                                         alt="logo"
                                     />
                                 </a>
