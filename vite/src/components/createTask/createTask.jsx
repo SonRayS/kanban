@@ -1,4 +1,4 @@
-function createTask() {
+function CreateTask() {
     return (
         <div class="pop-new-card__container">
             <div class="pop-new-card__block">
@@ -169,4 +169,4 @@ function createTask() {
     );
 }
 
-export default createTask;
+export default CreateTask;

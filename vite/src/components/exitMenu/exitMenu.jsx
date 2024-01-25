@@ -1,4 +1,4 @@
-function exitMenu() {
+function ExitMenu() {
     return (
         <div
             class="pop-exit"
@@ -35,4 +35,4 @@ function exitMenu() {
     );
 }
 
-export default exitMenu;
+export default ExitMenu;

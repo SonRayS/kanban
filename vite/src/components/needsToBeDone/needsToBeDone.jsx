@@ -1,4 +1,4 @@
-function needsToBeDone() {
+function NeedsToBeDone() {
     return (
         <div class="main__column">
             <div class="column__title">
@@ -72,4 +72,4 @@ function needsToBeDone() {
     );
 }
 
-export default needsToBeDone;
+export default NeedsToBeDone;

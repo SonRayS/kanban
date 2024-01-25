@@ -1,4 +1,4 @@
-function withoutStatus() {
+function WithoutStatus() {
     return (
         <div class="main__column column">
             <div class="column__title">
@@ -324,4 +324,4 @@ function withoutStatus() {
     );
 }
 
-export default withoutStatus;
+export default WithoutStatus;

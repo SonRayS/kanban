@@ -1,4 +1,4 @@
-function taskEditor() {
+function TaskEditor() {
     return (
         <div class="pop-browse__block">
             <div class="pop-browse__content">
@@ -189,4 +189,4 @@ function taskEditor() {
     );
 }
 
-export default taskEditor;
+export default TaskEditor;

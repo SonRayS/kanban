@@ -1,4 +1,4 @@
-function mainHeader() {
+function MainHeader() {
     return (
         <div class="header__block">
             <div class="header__logo _show _light">
@@ -63,4 +63,4 @@ function mainHeader() {
     );
 }
 
-export default mainHeader;
+export default MainHeader;

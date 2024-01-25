@@ -1,4 +1,4 @@
-function statusReady() {
+function StatusReady() {
     return (
         <div class="main__column">
             <div class="column__title">
@@ -72,4 +72,4 @@ function statusReady() {
     );
 }
 
-export default statusReady;
+export default StatusReady;

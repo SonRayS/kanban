@@ -1,4 +1,4 @@
-function statusTesting() {
+function StatusTesting() {
     return (
         <div class="main__column">
             <div class="column__title">
@@ -72,4 +72,4 @@ function statusTesting() {
     );
 }
 
-export default statusTesting;
+export default StatusTesting;

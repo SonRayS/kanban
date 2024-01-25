@@ -1,4 +1,4 @@
-function inProgress() {
+function InProgress() {
     return (
         <div class="main__column">
             <div class="column__title">
@@ -198,4 +198,4 @@ function inProgress() {
     );
 }
 
-export default inProgress;
+export default InProgress;
