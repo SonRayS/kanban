@@ -44,7 +44,7 @@ function CardForm({ statusTask, taskType, date }) {
                                         d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z"
                                         stroke="#94A6BE"
                                         strokeWidth="0.8"
-                                        stroke-linecap="round"
+                                        strokeLinecap="round"
                                         stroke-linejoin="round"
                                     />
                                 </g>
