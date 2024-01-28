@@ -22,7 +22,7 @@ function PopNewCard() {
                             >
                                 <div className="form-new__block">
                                     <label
-                                        for="formTitle"
+                                        htmlFor="formTitle"
                                         className="subttl"
                                     >
                                         Название задачи
@@ -38,7 +38,7 @@ function PopNewCard() {
                                 </div>
                                 <div className="form-new__block">
                                     <label
-                                        for="textArea"
+                                        htmlFor="textArea"
                                         className="subttl"
                                     >
                                         Описание задачи

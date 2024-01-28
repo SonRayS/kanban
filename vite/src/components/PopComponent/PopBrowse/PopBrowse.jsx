@@ -41,7 +41,7 @@ function PopBrowse() {
                             >
                                 <div className="form-browse__block">
                                     <label
-                                        for="textArea01"
+                                        htmlFor="textArea01"
                                         className="subttl"
                                     >
                                         Описание задачи
