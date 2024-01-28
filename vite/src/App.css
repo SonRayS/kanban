@@ -802,7 +802,7 @@ body {
 
 .main {
     width: 100%;
-    background-color: #eaeef6;
+    background-color: #565eef;
 }
 .main__block {
     width: 100%;
@@ -824,7 +824,7 @@ body {
     margin: 15px 0;
 }
 .column__title p {
-    color: #94a6be;
+    color: rgb(189, 199, 212);
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
