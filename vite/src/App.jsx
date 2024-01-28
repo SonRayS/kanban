@@ -8,7 +8,7 @@ import PopBrowse from "./components/PopComponent/PopBrowse/PopBrowse.jsx";
 
 function App() {
     return (
-        <div class="wrapper">
+        <div className="wrapper">
             <>
                 {/* ------POP------- */}
                 <PopExit />

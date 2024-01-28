@@ -1,31 +1,31 @@
 function CardForm({ statusTask, taskType, date }) {
     return (
-        <div class="cards">
-            <div class="cards__item">
-                <div class="cards__card card">
-                    <div class="card__group">
-                        <div class="card__theme _orange">
-                            <p class="_orange">{statusTask}</p>
+        <div className="cards">
+            <div className="cards__item">
+                <div className="cards__card card">
+                    <div className="card__group">
+                        <div className="card__theme _orange">
+                            <p className="_orange">{statusTask}</p>
                         </div>
                         <a
                             href="#popBrowse"
                             target="_self"
                         >
-                            <div class="card__btn">
+                            <div className="card__btn">
                                 <div></div>
                                 <div></div>
                                 <div></div>
                             </div>
                         </a>
                     </div>
-                    <div class="card__content">
+                    <div className="card__content">
                         <a
                             href=""
                             target="_blank"
                         >
-                            <h3 class="card__title">{taskType}</h3>
+                            <h3 className="card__title">{taskType}</h3>
                         </a>
-                        <div class="card__date">
+                        <div className="card__date">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="13"

@@ -3,11 +3,11 @@ import CardForm from "../CardForm/CardFormItem.jsx";
 function ColumnStatus({ status }) {
     return (
         <>
-            <div class="main__column column">
-                <div class="column__title">
+            <div className="main__column column">
+                <div className="column__title">
                     <p>{status}</p>
                 </div>
-                <div class="cards">
+                <div className="cards">
                     <CardForm
                         statusTask={"Web dising"}
                         taskType={"Новая задача"}
