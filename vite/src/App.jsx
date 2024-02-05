@@ -1,44 +1,34 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import MainHeader from "./components/Header/Header.jsx";
+import ColumnStatus from "./components/ColumnStatus/ColumnStatus.jsx";
+import MainContent from "./components/MainContent/MainContent.jsx";
+import PopExit from "./components/PopComponent/PopExit/PopExit.jsx";
+import PopNewCard from "./components/PopComponent/PopNewCard/PopNewCard.jsx";
+import PopBrowse from "./components/PopComponent/PopBrowse/PopBrowse.jsx";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
-        <>
-            <div>
-                <a
-                    href="https://vitejs.dev"
-                    target="_blank"
-                >
-                    <img
-                        src={viteLogo}
-                        className="logo"
-                        alt="Vite logo"
-                    />
-                </a>
-                <a
-                    href="https://react.dev"
-                    target="_blank"
-                >
-                    <img
-                        src={reactLogo}
-                        className="logo react"
-                        alt="React logo"
-                    />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-        </>
+        <div className="wrapper">
+            <>
+                {/* ------POP------- */}
+                <PopExit />
+                <PopNewCard />
+                <PopBrowse />
+                {/*  ------POP------- */}
+                {/*  ------Header------- */}
+                <MainHeader />
+                {/*  ------Header------- */}
+                {/*  ------Column------- */}
+                <MainContent>
+                    <ColumnStatus status={"Без cтатуса"} />
+                    <ColumnStatus status={"Нужно сделать"} />
+                    <ColumnStatus status={"В работе"} />
+                    <ColumnStatus status={"Тестирование"} />
+                    <ColumnStatus status={"Готово"} />
+                </MainContent>
+                {/*  ------Column------- */}
+            </>
+        </div>
     );
 }
 
