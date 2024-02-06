@@ -58,6 +58,18 @@ body {
     padding: 0 30px;
 }
 
+.loading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    color: white;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
 ._hover01:hover {
     background-color: #33399b;
 }
@@ -812,6 +824,7 @@ body {
 .main__content {
     width: 100%;
     display: flex;
+    flex-direction: column;
 }
 .main__column {
     width: 20%;

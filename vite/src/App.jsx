@@ -5,6 +5,7 @@ import MainContent from "./components/MainContent/MainContent.jsx";
 import PopExit from "./components/PopComponent/PopExit/PopExit.jsx";
 import PopNewCard from "./components/PopComponent/PopNewCard/PopNewCard.jsx";
 import PopBrowse from "./components/PopComponent/PopBrowse/PopBrowse.jsx";
+import LoadPage from "./components/Loading/LoadPage.jsx";
 
 function App() {
     return (
