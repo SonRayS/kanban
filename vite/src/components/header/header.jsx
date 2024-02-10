@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MainHeader() {
+function MainHeader({ addCard }) {
     const [isOpen, setIsOpen] = useState(false);
     const isOpenMenu = () => {
         setIsOpen((prevState) => !prevState);
@@ -36,8 +36,9 @@ function MainHeader() {
                         <button
                             className="header__btn-main-new _hover01"
                             id="btnMainNew"
+                            onClick={addCard}
                         >
-                            <a href="#popNewCard">Создать новую задачу</a>
+                            <a>Создать новую задачу</a>
                         </button>
 
                         <a

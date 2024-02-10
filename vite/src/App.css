@@ -59,6 +59,10 @@ body {
 }
 
 .loading {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -66,8 +70,12 @@ body {
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    color: white;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    color: rgb(110, 110, 110);
+    margin-top: 64px;
+}
+
+.loading li {
+    margin-bottom: 16px;
 }
 
 ._hover01:hover {

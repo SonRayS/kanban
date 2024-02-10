@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-
 function LoadPage() {
     return (
         <div className="loading">
-            <li>Данные загружаются</li>
+            <li>Loading...</li>
             <img
                 src="/public/loading.gif"
                 alt=""
