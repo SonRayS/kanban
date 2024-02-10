@@ -58,6 +58,26 @@ body {
     padding: 0 30px;
 }
 
+.loading {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    color: rgb(110, 110, 110);
+    margin-top: 64px;
+}
+
+.loading li {
+    margin-bottom: 16px;
+}
+
 ._hover01:hover {
     background-color: #33399b;
 }
@@ -785,7 +805,7 @@ body {
     padding: 0;
 }
 .header__pop-user-set {
-    display: none;
+    display: block;
     position: absolute;
     top: 61px;
     right: 0;
@@ -812,6 +832,8 @@ body {
 .main__content {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    flex-direction: row;
 }
 .main__column {
     width: 20%;

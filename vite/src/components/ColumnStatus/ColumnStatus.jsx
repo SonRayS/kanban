@@ -1,6 +1,6 @@
 import CardForm from "../CardForm/CardFormItem.jsx";
 
-function ColumnStatus({ status }) {
+function ColumnStatus({ status, CardList }) {
     return (
         <>
             <div className="main__column column">
@@ -8,26 +8,14 @@ function ColumnStatus({ status }) {
                     <p>{status}</p>
                 </div>
                 <div className="cards">
-                    <CardForm
-                        statusTask={"Web dising"}
-                        taskType={"Новая задача"}
-                        date={"30.10.23"}
-                    />
-                    <CardForm
-                        statusTask={"Web dising"}
-                        taskType={"Новая задача"}
-                        date={"30.10.23"}
-                    />
-                    <CardForm
-                        statusTask={"Web dising"}
-                        taskType={"Новая задача"}
-                        date={"30.10.23"}
-                    />
-                    <CardForm
-                        statusTask={"Web dising"}
-                        taskType={"Новая задача"}
-                        date={"30.10.23"}
-                    />
+                    {CardList.map((el) => (
+                        <CardForm
+                            statusTask={el.theme}
+                            taskType={el.title}
+                            date={el.date}
+                            key={el.id}
+                        />
+                    ))}
                 </div>
             </div>
         </>
