@@ -1,7 +1,7 @@
 const CardList = [
     {
         id: 1,
-        theme: "Web Design",
+        theme: "WebDesign",
         title: "Новая задача",
         date: "30.10.23",
         status: "Без статуса",

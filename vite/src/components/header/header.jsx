@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as S from "./header.style";
+import { Container } from "../MainStyle/MainStyle";
 
 function MainHeader({ addCard }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -7,9 +9,9 @@ function MainHeader({ addCard }) {
     };
 
     return (
-        <header className="header">
-            <div className="container">
-                <div className="header__block">
+        <S.StyleHeader>
+            <Container>
+                <S.HeaderBlock>
                     <div className="header__logo _show _light">
                         <a
                             href=""
@@ -73,9 +75,9 @@ function MainHeader({ addCard }) {
                             </div>
                         )}
                     </nav>
-                </div>
-            </div>
-        </header>
+                </S.HeaderBlock>
+            </Container>
+        </S.StyleHeader>
     );
 }
 

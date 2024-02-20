@@ -1,12 +1,14 @@
+import * as C from "./CardForm.style";
+
 function CardForm({ statusTask, taskType, date }) {
     return (
         <div className="cards">
             <div className="cards__item">
                 <div className="cards__card card">
                     <div className="card__group">
-                        <div className="card__theme _orange">
-                            <p className="_orange">{statusTask}</p>
-                        </div>
+                        <C.CardTopic $topicColor={C.topicName[statusTask]}>
+                            <C.TopicText>{statusTask}</C.TopicText>
+                        </C.CardTopic>
                         <a
                             href="#popBrowse"
                             target="_self"
