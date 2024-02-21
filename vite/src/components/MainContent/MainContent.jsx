@@ -1,14 +1,15 @@
-import { Container } from "../MainStyle/MainStyle";
+import { Container } from "../GlobalStyle/Global.style";
+import { Main, MainBlock, MainContents } from "./MainContent.style";
 
 function MainContent({ children }) {
     return (
-        <main className="main">
+        <Main>
             <Container>
-                <div className="main__block">
-                    <div className="main__content">{children}</div>
-                </div>
+                <MainBlock>
+                    <MainContents>{children}</MainContents>
+                </MainBlock>
             </Container>
-        </main>
+        </Main>
     );
 }
 

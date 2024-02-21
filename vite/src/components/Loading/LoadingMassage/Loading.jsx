@@ -1,14 +1,14 @@
+import { Loading } from "./Loading.style";
+
 function LoadPage() {
     return (
-        <div className="loading">
+        <Loading>
             <li>Loading...</li>
             <img
                 src="/public/loading.gif"
                 alt=""
-                width="64"
-                height="64"
             />
-        </div>
+        </Loading>
     );
 }
 

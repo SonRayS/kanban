@@ -2,10 +2,10 @@ import * as C from "./CardForm.style";
 
 function CardForm({ statusTask, taskType, date }) {
     return (
-        <div className="cards">
-            <div className="cards__item">
-                <div className="cards__card card">
-                    <div className="card__group">
+        <C.Card>
+            <C.CardsItem>
+                <C.CardsCard>
+                    <C.CardGroup>
                         <C.CardTopic $topicColor={C.topicName[statusTask]}>
                             <C.TopicText>{statusTask}</C.TopicText>
                         </C.CardTopic>
@@ -13,22 +13,22 @@ function CardForm({ statusTask, taskType, date }) {
                             href="#popBrowse"
                             target="_self"
                         >
-                            <div className="card__btn">
+                            <C.CardBtn>
                                 <div></div>
                                 <div></div>
                                 <div></div>
-                            </div>
+                            </C.CardBtn>
                         </a>
-                    </div>
-                    <div className="card__content">
+                    </C.CardGroup>
+                    <C.CardContent>
                         <a
                             href=""
                             target="_blank"
                         >
-                            <h3 className="card__title">{taskType}</h3>
+                            <C.CardTitle>{taskType}</C.CardTitle>
                         </a>
-                        <div className="card__date">
-                            <svg
+                        <C.CardDate>
+                            <C.CardDateSvg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="13"
                                 height="13"
@@ -59,13 +59,13 @@ function CardForm({ statusTask, taskType, date }) {
                                         />
                                     </clipPath>
                                 </defs>
-                            </svg>
-                            <p>{date}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            </C.CardDateSvg>
+                            <C.CardDateText>{date}</C.CardDateText>
+                        </C.CardDate>
+                    </C.CardContent>
+                </C.CardsCard>
+            </C.CardsItem>
+        </C.Card>
     );
 }
 

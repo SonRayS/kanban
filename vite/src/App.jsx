@@ -5,9 +5,11 @@ import MainContent from "./components/MainContent/MainContent.jsx";
 import PopExit from "./components/PopComponent/PopExit/PopExit.jsx";
 import PopNewCard from "./components/PopComponent/PopNewCard/PopNewCard.jsx";
 import PopBrowse from "./components/PopComponent/PopBrowse/PopBrowse.jsx";
-import LoadPage from "./components/Loading/LoadingMassage/LoadPage.jsx";
+import LoadPage from "./components/Loading/LoadingMassage/Loading.jsx";
 import CardList from "./data.js";
 import { useState, useEffect } from "react";
+import { GlobalStyle } from "./components/GlobalStyle/Global.style.js";
+import { Wrapper } from "./App.style.js";
 
 const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
 
@@ -32,8 +34,9 @@ function App() {
     }
 
     return (
-        <div className="wrapper">
-            <>
+        <>
+            <GlobalStyle />
+            <Wrapper>
                 {/* ------POP------- */}
                 <PopExit />
                 <PopNewCard />
@@ -58,8 +61,8 @@ function App() {
                     </MainContent>
                 )}
                 {/*  ------Column------- */}
-            </>
-        </div>
+            </Wrapper>
+        </>
     );
 }
 
