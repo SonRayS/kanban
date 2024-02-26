@@ -138,7 +138,6 @@ body {
 }
 
 .pop-exit {
-    display: none;
     width: 100%;
     height: 100%;
     min-width: 320px;
@@ -565,7 +564,6 @@ body {
 }
 
 .pop-browse {
-    display: none;
     width: 100%;
     height: 100%;
     min-width: 375px;
@@ -740,7 +738,99 @@ body {
 ._dark {
     display: none;
 }
+/* ----------------------------------------- */
 
+.modal {
+    width: 368px;
+    height: 329px;
+    border-radius: 4px;
+    border: solid #565eef 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal__block,
+.modal__form-login,
+.modal__form-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.modal__form-login input {
+    margin: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    width: 178px;
+    height: 20px;
+    border: solid #b8bbec 1px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #b8bbec;
+}
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #b8bbec;
+}
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #b8bbec;
+}
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #b8bbec;
+}
+
+:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+:focus::-moz-placeholder {
+    color: transparent;
+}
+
+:focus:-moz-placeholder {
+    color: transparent;
+}
+
+:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.modal__form-login button {
+    margin: 12px;
+    width: 178px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #565eef;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.modal__form-login button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.modal__form-group {
+    color: #9da1e9;
+}
+
+.modal__form-group a {
+    color: #6e75fc;
+}
+/* ----------------------------------------- */
 /* .header {
     width: 100%;
     margin: 0 auto;

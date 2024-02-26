@@ -16,6 +16,7 @@ function ColumnStatus({ status, CardList }) {
                             taskType={el.title}
                             date={el.date}
                             key={el.id}
+                            id={el.id}
                         />
                     ))}
                 </Card>

@@ -1,10 +1,13 @@
-function Author() {
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
+
+function Page_author() {
     return (
         <html lang="en">
             <head>
-                <meta charset="UTF-8" />
+                <meta charSet="UTF-8" />
                 <meta
-                    http-equiv="X-UA-Compatible"
+                    httpEquiv="X-UA-Compatible"
                     content="IE=edge"
                 />
                 <meta
@@ -23,50 +26,49 @@ function Author() {
                 <link
                     rel="preconnect"
                     href="https://fonts.gstatic.com"
-                    crossorigin
                 />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
                     rel="stylesheet"
                 />
-                <title>Skypro</title>
+                <title>Kanban-board</title>
             </head>
             <body>
-                <div class="wrapper">
-                    <div class="container-signin">
-                        <div class="modal">
-                            <div class="modal__block">
-                                <div class="modal__ttl">
+                <div className="wrapper">
+                    <div className="container-signin">
+                        <div className="modal">
+                            <div className="modal__block">
+                                <div className="modal__ttl">
                                     <h2>Вход</h2>
                                 </div>
                                 <form
-                                    class="modal__form-login"
+                                    className="modal__form-login"
                                     id="formLogIn"
                                     action="#"
                                 >
                                     <input
-                                        class="modal__input"
+                                        className="modal__input"
                                         type="text"
                                         name="login"
                                         id="formlogin"
                                         placeholder="Эл. почта"
                                     />
                                     <input
-                                        class="modal__input"
+                                        className="modal__input"
                                         type="password"
                                         name="password"
                                         id="formpassword"
                                         placeholder="Пароль"
                                     />
                                     <button
-                                        class="modal__btn-enter _hover01"
+                                        className="modal__btn-enter _hover01"
                                         id="btnEnter"
                                     >
-                                        <a href="../main.html">Войти</a>
+                                        <Link to={AppRoutes.PAGE_MAIN}>Войти</Link>
                                     </button>
-                                    <div class="modal__form-group">
+                                    <div className="modal__form-group">
                                         <p>Нужно зарегистрироваться?</p>
-                                        <a href="signup.html">Регистрируйтесь здесь</a>
+                                        <Link to={AppRoutes.PAGE_REGISTRATION}>Регистрируйтесь здесь</Link>
                                     </div>
                                 </form>
                             </div>
@@ -78,4 +80,4 @@ function Author() {
     );
 }
 
-export default Author;
+export default Page_author;

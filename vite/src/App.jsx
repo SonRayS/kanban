@@ -1,81 +1,61 @@
-import "./App.css";
-import React from "react";
 import { Routes, Route } from "react-router-dom";
-import NotFoundPage from "./pages/Page_not_found/Page_not_found.jsx";
-import Registration from "./pages/Page_registration/Page_registration.jsx";
-import Author from "./pages/Page_authorization/Page_authorization.jsx";
-import MainHeader from "./components/Header/header.jsx";
-import ColumnStatus from "./components/ColumnStatus/ColumnStatus.jsx";
-import MainContent from "./components/MainContent/MainContent.jsx";
-import PopExit from "./components/PopComponent/PopExit/PopExit.jsx";
-import PopNewCard from "./components/PopComponent/PopNewCard/PopNewCard.jsx";
-import PopBrowse from "./components/PopComponent/PopBrowse/PopBrowse.jsx";
-import LoadPage from "./components/Loading/LoadingMassage/Loading.jsx";
-import CardList from "./data.js";
-import { useState, useEffect } from "react";
-import { GlobalStyle } from "./components/GlobalStyle/Global.style.js";
-import { Wrapper } from "./App.style.js";
+import Page_main from "./pages/Page_main/Page_main";
+import Page_not_found from "./pages/Page_not_found/Page_not_found";
+import Page_registration from "./pages/Page_registration/Page_registration";
+import Page_author from "./pages/Page_authorization/Page_authorization";
+import Page_card from "./pages/Page_card/Page_card";
+import Page_exit from "./pages/Page_Exit/Page_exit";
+import { AppRoutes } from "./components/AppRoutes/AppRoutes";
+import { useState } from "react";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import "./App.css";
 
-const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
+/* 
+    PAGE_MAIN: "/",
+    PAGE_AUTHORIZATION: "/login",
+    PAGE_REGISTRATION: "/registration",
+    PAGE_CARD: "/card/:id",
+    PAGE_EXIT: "/exit",
+    PAGE_NOT_FOUND: "*",
+*/
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-    }, []);
-
-    const [cards, setCards] = useState(CardList);
-    function addCard() {
-        const newCard = {
-            id: cards.length + 1,
-            theme: "Copywriting",
-            title: "Новая задача",
-            date: "30.10.23",
-            status: "Без статуса",
-        };
-        setCards([...cards, newCard]);
-    }
-
-    const AppRoutes = {
-        PAGE_MAIN: "/",
-        PAGE_AUTHORIZATION: "/login",
-        PAGE_REGISTRATION: "/register",
-        PAGE_CARD: "/card/:id",
-        PAGE_EXIT: "/exit",
-        PAGE_NOT_FOUND: "*",
-    };
-
+    const [user, setUser] = useState(true);
     return (
-        <>
-            <GlobalStyle />
-            <Wrapper>
-                {/* ------POP------- */}
-                <PopExit />
-                <PopNewCard />
-                <PopBrowse />
-                {/*  ------POP------- */}
-                {/*  ------Header------- */}s
-                <MainHeader addCard={addCard} />
-                {/*  ------Header------- */}
-                {/*  ------Column------- */}
-                {isLoading ? (
-                    LoadPage()
-                ) : (
-                    <MainContent>
-                        {statusList.map((status) => (
-                            <ColumnStatus
-                                status={status}
-                                key={status}
-                                CardList={cards.filter((el) => el.status === status)}
-                            />
-                        ))}
-                    </MainContent>
-                )}
-                {/*  ------Column------- */}
-            </Wrapper>
-        </>
+        <Routes>
+            <Route element={<PrivateRoute user={user} />}>
+                <Route
+                    path={AppRoutes.PAGE_MAIN}
+                    element={<Page_main />}
+                >
+                    <Route
+                        path={AppRoutes.PAGE_CARD}
+                        element={<Page_card />}
+                    />
+                    <Route
+                        path={AppRoutes.PAGE_EXIT}
+                        element={<Page_exit />}
+                    />
+                </Route>
+            </Route>
+            {/* ----------------------------------------- */}
+            <Route
+                path={AppRoutes.PAGE_MAIN}
+                element={<Page_main />}
+            />
+            <Route
+                path={AppRoutes.PAGE_AUTHORIZATION}
+                element={<Page_author />}
+            />
+            <Route
+                path={AppRoutes.PAGE_REGISTRATION}
+                element={<Page_registration />}
+            />
+            <Route
+                path={AppRoutes.PAGE_NOT_FOUND}
+                element={<Page_not_found />}
+            />
+        </Routes>
     );
 }
 

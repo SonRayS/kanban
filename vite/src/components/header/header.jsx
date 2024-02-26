@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as S from "./header.style";
 import { Container } from "../GlobalStyle/Global.style";
 import { Link } from "react-router-dom";
+import { AppRoutes } from "../AppRoutes/AppRoutes";
 
 function MainHeader({ addCard }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +65,7 @@ function MainHeader({ addCard }) {
                                     />
                                 </div>
                                 <S.HeaderBtnMenu $HoverNumber={"hover03"}>
-                                    <a href="#popExit">Выйти</a>
+                                    <Link to={AppRoutes.PAGE_EXIT}>Выйти</Link>
                                 </S.HeaderBtnMenu>
                             </S.PopUserSet>
                         )}
