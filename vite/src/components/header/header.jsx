@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as S from "./header.style";
+import { Container } from "../GlobalStyle/Global.style";
 
 function MainHeader({ addCard }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -7,10 +9,10 @@ function MainHeader({ addCard }) {
     };
 
     return (
-        <header className="header">
-            <div className="container">
-                <div className="header__block">
-                    <div className="header__logo _show _light">
+        <S.StyleHeader>
+            <Container>
+                <S.HeaderBlock>
+                    <S.HeaderLogo>
                         <a
                             href=""
                             target="_self"
@@ -20,7 +22,7 @@ function MainHeader({ addCard }) {
                                 alt="logo"
                             />
                         </a>
-                    </div>
+                    </S.HeaderLogo>
                     <div className="header__logo _dark">
                         <a
                             href=""
@@ -32,50 +34,43 @@ function MainHeader({ addCard }) {
                             />
                         </a>
                     </div>
-                    <nav className="header__nav">
-                        <button
-                            className="header__btn-main-new _hover01"
+                    <S.HeaderNav>
+                        <S.HeaderBtnMainNew
+                            $HoverNumber={"hover01"}
                             id="btnMainNew"
                             onClick={addCard}
                         >
                             <a>Создать новую задачу</a>
-                        </button>
+                        </S.HeaderBtnMainNew>
 
-                        <a
+                        <S.HeaderUser
+                            $HoverNumber={"hover02"}
                             href="#user-set-target"
-                            className="header__user _hover02"
                             onClick={isOpenMenu}
                         >
                             Ivan Ivanov
-                        </a>
+                        </S.HeaderUser>
                         {isOpen && (
-                            <div
-                                className="header__pop-user-set pop-user-set"
-                                id="user-set-target"
-                            >
+                            <S.PopUserSet id="user-set-target">
                                 {/* <!-- <a href="">x</a> --> */}
                                 <p className="pop-user-set__name">Ivan Ivanov</p>
                                 <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
                                 <div className="pop-user-set__theme">
                                     <p>Темная тема</p>
-                                    <input
+                                    <S.Checkbox
                                         type="checkbox"
-                                        className="checkbox"
                                         name="checkbox"
                                     />
                                 </div>
-                                <button
-                                    type="button"
-                                    className="_hover03"
-                                >
+                                <S.HeaderBtnMenu $HoverNumber={"hover03"}>
                                     <a href="#popExit">Выйти</a>
-                                </button>
-                            </div>
+                                </S.HeaderBtnMenu>
+                            </S.PopUserSet>
                         )}
-                    </nav>
-                </div>
-            </div>
-        </header>
+                    </S.HeaderNav>
+                </S.HeaderBlock>
+            </Container>
+        </S.StyleHeader>
     );
 }
 

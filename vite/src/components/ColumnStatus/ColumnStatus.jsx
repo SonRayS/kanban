@@ -1,13 +1,15 @@
+import { Card } from "../CardForm/CardForm.style.js";
 import CardForm from "../CardForm/CardFormItem.jsx";
+import { ColumnTitle, MainColumn } from "./ColumnStatus.style.js";
 
 function ColumnStatus({ status, CardList }) {
     return (
         <>
-            <div className="main__column column">
-                <div className="column__title">
+            <MainColumn>
+                <ColumnTitle>
                     <p>{status}</p>
-                </div>
-                <div className="cards">
+                </ColumnTitle>
+                <Card>
                     {CardList.map((el) => (
                         <CardForm
                             statusTask={el.theme}
@@ -16,8 +18,8 @@ function ColumnStatus({ status, CardList }) {
                             key={el.id}
                         />
                     ))}
-                </div>
-            </div>
+                </Card>
+            </MainColumn>
         </>
     );
 }
