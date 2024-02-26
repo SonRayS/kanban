@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Page_main from "./pages/Page_main/Page_main";
 import Page_not_found from "./pages/Page_not_found/Page_not_found";
 import Page_registration from "./pages/Page_registration/Page_registration";
@@ -21,6 +21,18 @@ import "./App.css";
 
 function App() {
     const [user, setUser] = useState(true);
+
+    const navigate = useNavigate();
+
+    function GoToMenu() {
+        setUser(true);
+        navigate(AppRoutes.PAGE_MAIN);
+    }
+    function Author() {
+        setUser(true);
+        navigate(AppRoutes.PAGE_EXIT);
+    }
+
     return (
         <Routes>
             <Route element={<PrivateRoute user={user} />}>
@@ -34,7 +46,7 @@ function App() {
                     />
                     <Route
                         path={AppRoutes.PAGE_EXIT}
-                        element={<Page_exit />}
+                        element={<Page_exit Author={Author} />}
                     />
                 </Route>
             </Route>
@@ -45,7 +57,7 @@ function App() {
             />
             <Route
                 path={AppRoutes.PAGE_AUTHORIZATION}
-                element={<Page_author />}
+                element={<Page_author GoToMenu={GoToMenu} />}
             />
             <Route
                 path={AppRoutes.PAGE_REGISTRATION}

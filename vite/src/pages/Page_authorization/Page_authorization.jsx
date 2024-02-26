@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
 
-function Page_author() {
+function Page_author({ GoToMenu }) {
     return (
         <html lang="en">
             <head>
@@ -61,6 +61,7 @@ function Page_author() {
                                         placeholder="Пароль"
                                     />
                                     <button
+                                        onClick={GoToMenu}
                                         className="modal__btn-enter _hover01"
                                         id="btnEnter"
                                     >
