@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as S from "./header.style";
 import { Container } from "../GlobalStyle/Global.style";
+import { Link } from "react-router-dom";
 
 function MainHeader({ addCard }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,26 +14,26 @@ function MainHeader({ addCard }) {
             <Container>
                 <S.HeaderBlock>
                     <S.HeaderLogo>
-                        <a
-                            href=""
+                        <Link
+                            to="/"
                             target="_self"
                         >
                             <img
                                 src="/public/logo.png"
                                 alt="logo"
                             />
-                        </a>
+                        </Link>
                     </S.HeaderLogo>
                     <div className="header__logo _dark">
-                        <a
-                            href=""
+                        <Link
+                            to="/"
                             target="_self"
                         >
                             <img
                                 src="/public/logo_dark.png"
                                 alt="logo"
                             />
-                        </a>
+                        </Link>
                     </div>
                     <S.HeaderNav>
                         <S.HeaderBtnMainNew

@@ -1,4 +1,9 @@
 import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import NotFoundPage from "./pages/Page_not_found/Page_not_found.jsx";
+import Registration from "./pages/Page_registration/Page_registration.jsx";
+import Author from "./pages/Page_authorization/Page_authorization.jsx";
 import MainHeader from "./components/Header/header.jsx";
 import ColumnStatus from "./components/ColumnStatus/ColumnStatus.jsx";
 import MainContent from "./components/MainContent/MainContent.jsx";
@@ -33,6 +38,15 @@ function App() {
         setCards([...cards, newCard]);
     }
 
+    const AppRoutes = {
+        PAGE_MAIN: "/",
+        PAGE_AUTHORIZATION: "/login",
+        PAGE_REGISTRATION: "/register",
+        PAGE_CARD: "/card/:id",
+        PAGE_EXIT: "/exit",
+        PAGE_NOT_FOUND: "*",
+    };
+
     return (
         <>
             <GlobalStyle />
@@ -42,11 +56,10 @@ function App() {
                 <PopNewCard />
                 <PopBrowse />
                 {/*  ------POP------- */}
-                {/*  ------Header------- */}
+                {/*  ------Header------- */}s
                 <MainHeader addCard={addCard} />
                 {/*  ------Header------- */}
                 {/*  ------Column------- */}
-
                 {isLoading ? (
                     LoadPage()
                 ) : (
