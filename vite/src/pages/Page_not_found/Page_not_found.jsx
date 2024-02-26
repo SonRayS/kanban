@@ -17,7 +17,7 @@ function Page_not_found() {
                     />
                 </Link>
                 <PageNotFoundP>
-                    Error 404 page not found :C{" "}
+                    Error 404, page not found :C{" "}
                     <Link to={AppRoutes.PAGE_AUTHORIZATION}>
                         <br />
                         <u> GO BACK</u>
