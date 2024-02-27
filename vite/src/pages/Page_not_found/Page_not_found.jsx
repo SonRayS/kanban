@@ -3,7 +3,7 @@ import "../../App.css";
 import { PageNotFound } from "./Page_not_found.style";
 import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes.js";
-import { PageNotFoundP, PageNotFoundImg } from "./Page_not_found.style";
+import { PageNotFoundP, PageNotFoundImg, ModalBtnText, ModalButton } from "./Page_not_found.style";
 
 function Page_not_found() {
     return (
@@ -18,10 +18,15 @@ function Page_not_found() {
                 </Link>
                 <PageNotFoundP>
                     Error 404, page not found :C{" "}
-                    <Link to={AppRoutes.PAGE_AUTHORIZATION}>
-                        <br />
-                        <u> GO BACK</u>
-                    </Link>
+                    <ModalButton
+                        $HoverNumber={"hover01"}
+                        id="SignUpEnter"
+                    >
+                        <Link to={AppRoutes.PAGE_AUTHORIZATION}>
+                            {" "}
+                            <ModalBtnText>GO BACK</ModalBtnText>
+                        </Link>
+                    </ModalButton>
                 </PageNotFoundP>
             </PageNotFound>
         </>

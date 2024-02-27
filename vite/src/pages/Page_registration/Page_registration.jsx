@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
-import "../../App.css";
+import * as R from "./Page_registration.style";
 
 function Page_registration() {
     return (
@@ -36,58 +36,56 @@ function Page_registration() {
                     <title>Kanban-board</title>
                 </head>
 
-                <body>
-                    <div className="wrapper">
-                        <div className="container-signup">
-                            <div className="modal">
-                                <div className="modal__block">
-                                    <div className="modal__ttl">
-                                        <h2>Регистрация</h2>
-                                    </div>
-                                    <form
-                                        className="modal__form-login"
+                <R.Body>
+                    <R.Wrapper>
+                        <R.ContainerSignIn>
+                            <R.Modal>
+                                <R.ModalBlock>
+                                    <R.ModalTtl>
+                                        <R.ModalTtlH2>Регистрация</R.ModalTtlH2>
+                                    </R.ModalTtl>
+                                    <R.ModalFromLogin
                                         id="formLogUp"
                                         action="#"
                                     >
-                                        <input
-                                            className="modal__input first-name"
+                                        <R.ModalInput
                                             type="text"
                                             name="first-name"
                                             id="first-name"
                                             placeholder="Имя"
                                         />
-                                        <input
-                                            className="modal__input login"
+                                        <R.ModalInput
                                             type="text"
                                             name="login"
                                             id="loginReg"
                                             placeholder="Эл. почта"
                                         />
-                                        <input
-                                            className="modal__input password-first"
+                                        <R.ModalInput
                                             type="password"
                                             name="password"
                                             id="passwordFirst"
                                             placeholder="Пароль"
                                         />
-                                        <button
-                                            className="modal__btn-signup-ent _hover01"
+                                        <R.ModalButton
+                                            $HoverNumber={"hover01"}
                                             id="SignUpEnter"
                                         >
-                                            <a href="../main.html">Зарегистрироваться</a>
-                                        </button>
-                                        <div className="modal__form-group">
-                                            <p>
-                                                Уже есть аккаунт?{" "}
-                                                <Link to={AppRoutes.PAGE_AUTHORIZATION}>Войдите здесь</Link>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </body>
+                                            <Link to={AppRoutes.PAGE_NOT_FOUND}>
+                                                <R.ModalBtnText>Зарегистрироваться</R.ModalBtnText>
+                                            </Link>
+                                        </R.ModalButton>
+                                        <R.ModalFromGroup>
+                                            <R.ModalText>
+                                                Уже есть аккаунт?
+                                                <Link to={AppRoutes.PAGE_AUTHORIZATION}> Войдите здесь</Link>
+                                            </R.ModalText>
+                                        </R.ModalFromGroup>
+                                    </R.ModalFromLogin>
+                                </R.ModalBlock>
+                            </R.Modal>
+                        </R.ContainerSignIn>
+                    </R.Wrapper>
+                </R.Body>
             </html>
         </>
     );
