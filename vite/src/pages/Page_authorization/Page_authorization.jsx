@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
+import * as A from "./Page.authorization.style";
 
 function Page_author({ GoToMenu }) {
     return (
@@ -34,48 +35,50 @@ function Page_author({ GoToMenu }) {
                 <title>Kanban-board</title>
             </head>
             <body>
-                <div className="wrapper">
-                    <div className="container-signin">
-                        <div className="modal">
-                            <div className="modal__block">
+                <A.Wrapper>
+                    <A.ContainerSignIn>
+                        <A.Modal>
+                            <A.ModalBlock>
                                 <div className="modal__ttl">
                                     <h2>Вход</h2>
                                 </div>
-                                <form
-                                    className="modal__form-login"
+                                <A.ModalFromLogin
                                     id="formLogIn"
                                     action="#"
                                 >
-                                    <input
-                                        className="modal__input"
+                                    <A.ModalInput
                                         type="text"
                                         name="login"
                                         id="formlogin"
                                         placeholder="Эл. почта"
                                     />
-                                    <input
-                                        className="modal__input"
+                                    <A.ModalInput
                                         type="password"
                                         name="password"
                                         id="formpassword"
                                         placeholder="Пароль"
                                     />
-                                    <button
+                                    <A.ModalButton
                                         onClick={GoToMenu}
-                                        className="modal__btn-enter _hover01"
+                                        $HoverNumber={"hover01"}
                                         id="btnEnter"
                                     >
-                                        <Link to={AppRoutes.PAGE_MAIN}>Войти</Link>
-                                    </button>
-                                    <div className="modal__form-group">
-                                        <p>Нужно зарегистрироваться?</p>
-                                        <Link to={AppRoutes.PAGE_REGISTRATION}>Регистрируйтесь здесь</Link>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                        <Link to={AppRoutes.PAGE_MAIN}>
+                                            <A.ModalBtnText>Войти</A.ModalBtnText>
+                                        </Link>
+                                    </A.ModalButton>
+                                    <A.ModalFromGroup>
+                                        <A.ModalText>
+                                            Нужно зарегистрироваться?
+                                            <br />
+                                            <Link to={AppRoutes.PAGE_REGISTRATION}>Регистрируйтесь здесь</Link>
+                                        </A.ModalText>
+                                    </A.ModalFromGroup>
+                                </A.ModalFromLogin>
+                            </A.ModalBlock>
+                        </A.Modal>
+                    </A.ContainerSignIn>
+                </A.Wrapper>
             </body>
         </html>
     );

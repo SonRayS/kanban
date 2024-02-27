@@ -740,7 +740,7 @@ body {
 }
 /* ----------------------------------------- */
 
-.modal {
+/* .modal {
     width: 368px;
     height: 329px;
     border-radius: 4px;
@@ -771,7 +771,7 @@ body {
     border: solid #b8bbec 1px;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
-
+ */
 ::-webkit-input-placeholder {
     /* WebKit browsers */
     color: #b8bbec;
@@ -805,7 +805,7 @@ body {
     color: transparent;
 }
 
-.modal__form-login button {
+/* .modal__form-login button {
     margin: 12px;
     width: 178px;
     height: 30px;
@@ -816,8 +816,8 @@ body {
     font-weight: 500;
     margin-right: 20px;
     text-decoration: none;
-}
-
+} */
+/* 
 .modal__form-login button a {
     text-decoration: none;
     color: #ffffff;
@@ -829,7 +829,7 @@ body {
 
 .modal__form-group a {
     color: #6e75fc;
-}
+} */
 /* ----------------------------------------- */
 /* .header {
     width: 100%;
