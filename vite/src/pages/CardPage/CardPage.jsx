@@ -1,7 +1,7 @@
 import PopBrowse from "../../components/PopComponent/PopBrowse/PopBrowse";
 
-function Page_card() {
+function CardPage() {
     return <PopBrowse />;
 }
 
-export default Page_card;
+export default CardPage;

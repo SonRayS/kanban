@@ -1,10 +1,10 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Page_main from "./pages/Page_main/Page_main";
-import Page_not_found from "./pages/Page_not_found/Page_not_found";
-import Page_registration from "./pages/Page_registration/Page_registration";
-import Page_author from "./pages/Page_authorization/Page_authorization";
-import Page_card from "./pages/Page_card/Page_card";
-import Page_exit from "./pages/Page_Exit/Page_exit";
+import MainPage from "./pages/MainPage/MainPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import AuthorizationPage from "./pages/AuthorizationPage/AuthorizationPage";
+import CardPage from "./pages/CardPage/CardPage";
+import ExitPage from "./pages/ExitPage/ExitPage";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
 import { useState } from "react";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -17,6 +17,7 @@ import "./App.css";
     PAGE_CARD: "/card/:id",
     PAGE_EXIT: "/exit",
     PAGE_NOT_FOUND: "*",
+    page_main
 */
 
 function App() {
@@ -38,34 +39,34 @@ function App() {
             <Route element={<PrivateRoute user={user} />}>
                 <Route
                     path={AppRoutes.PAGE_MAIN}
-                    element={<Page_main />}
+                    element={<MainPage />}
                 >
                     <Route
                         path={AppRoutes.PAGE_CARD}
-                        element={<Page_card />}
+                        element={<CardPage />}
                     />
                     <Route
                         path={AppRoutes.PAGE_EXIT}
-                        element={<Page_exit Author={Author} />}
+                        element={<ExitPage Author={Author} />}
                     />
                 </Route>
             </Route>
             {/* ----------------------------------------- */}
             <Route
                 path={AppRoutes.PAGE_MAIN}
-                element={<Page_main />}
+                element={<MainPage />}
             />
             <Route
                 path={AppRoutes.PAGE_AUTHORIZATION}
-                element={<Page_author GoToMenu={GoToMenu} />}
+                element={<AuthorizationPage GoToMenu={GoToMenu} />}
             />
             <Route
                 path={AppRoutes.PAGE_REGISTRATION}
-                element={<Page_registration />}
+                element={<RegistrationPage />}
             />
             <Route
                 path={AppRoutes.PAGE_NOT_FOUND}
-                element={<Page_not_found />}
+                element={<NotFoundPage />}
             />
         </Routes>
     );

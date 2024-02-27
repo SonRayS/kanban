@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import "../../App.css";
-import { PageNotFound } from "./Page_not_found.style";
+import { PageNotFound } from "./NotFoundPage.style.js";
 import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes.js";
-import { PageNotFoundP, PageNotFoundImg, ModalBtnText, ModalButton } from "./Page_not_found.style";
+import { PageNotFoundP, PageNotFoundImg, ModalBtnText, ModalButton } from "./NotFoundPage.style.js";
 
-function Page_not_found() {
+function NotFoundPage() {
     return (
         <>
             <GlobalStyle />
@@ -33,4 +33,4 @@ function Page_not_found() {
     );
 }
 
-export default Page_not_found;
+export default NotFoundPage;

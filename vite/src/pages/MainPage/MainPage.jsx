@@ -12,7 +12,7 @@ import { Outlet } from "react-router-dom";
 
 const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
 
-function Page_main() {
+function MainPage() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setTimeout(() => {
@@ -60,4 +60,4 @@ function Page_main() {
     );
 }
 
-export default Page_main;
+export default MainPage;
