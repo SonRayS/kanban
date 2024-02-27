@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
 import * as R from "./RegistrationPage.style";
+import SendFormReg from "../../components/SendFormReg/SendFormReg";
 
 function RegistrationPage() {
     return (
@@ -36,10 +37,9 @@ function RegistrationPage() {
                             <R.ModalButton
                                 $HoverNumber={"hover01"}
                                 id="SignUpEnter"
+                                onClick={SendFormReg}
                             >
-                                <Link to={AppRoutes.PAGE_REGISTRATION}>
-                                    <R.ModalBtnText>Зарегистрироваться</R.ModalBtnText>
-                                </Link>
+                                <R.ModalBtnText>Зарегистрироваться</R.ModalBtnText>
                             </R.ModalButton>
                             <R.ModalFromGroup>
                                 <R.ModalText>
