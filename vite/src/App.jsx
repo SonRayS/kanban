@@ -1,68 +1,74 @@
+import { Routes, Route, useNavigate } from "react-router-dom";
+import MainPage from "./pages/MainPage/MainPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import AuthorizationPage from "./pages/AuthorizationPage/AuthorizationPage";
+import CardPage from "./pages/CardPage/CardPage";
+import ExitPage from "./pages/ExitPage/ExitPage";
+import { AppRoutes } from "./components/AppRoutes/AppRoutes";
+import { useState } from "react";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import "./App.css";
-import MainHeader from "./components/Header/header.jsx";
-import ColumnStatus from "./components/ColumnStatus/ColumnStatus.jsx";
-import MainContent from "./components/MainContent/MainContent.jsx";
-import PopExit from "./components/PopComponent/PopExit/PopExit.jsx";
-import PopNewCard from "./components/PopComponent/PopNewCard/PopNewCard.jsx";
-import PopBrowse from "./components/PopComponent/PopBrowse/PopBrowse.jsx";
-import LoadPage from "./components/Loading/LoadingMassage/Loading.jsx";
-import CardList from "./data.js";
-import { useState, useEffect } from "react";
-import { GlobalStyle } from "./components/GlobalStyle/Global.style.js";
-import { Wrapper } from "./App.style.js";
 
-const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
+/* 
+    PAGE_MAIN: "/",
+    PAGE_AUTHORIZATION: "/login",
+    PAGE_REGISTRATION: "/registration",
+    PAGE_CARD: "/card/:id",
+    PAGE_EXIT: "/exit",
+    PAGE_NOT_FOUND: "*",
+    page_main
+*/
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-    }, []);
+    const [user, setUser] = useState(true);
 
-    const [cards, setCards] = useState(CardList);
-    function addCard() {
-        const newCard = {
-            id: cards.length + 1,
-            theme: "Copywriting",
-            title: "Новая задача",
-            date: "30.10.23",
-            status: "Без статуса",
-        };
-        setCards([...cards, newCard]);
+    const navigate = useNavigate();
+
+    function GoToMenu() {
+        setUser(true);
+        navigate(AppRoutes.PAGE_MAIN);
+    }
+    function Author() {
+        setUser(true);
+        navigate(AppRoutes.PAGE_EXIT);
     }
 
     return (
-        <>
-            <GlobalStyle />
-            <Wrapper>
-                {/* ------POP------- */}
-                <PopExit />
-                <PopNewCard />
-                <PopBrowse />
-                {/*  ------POP------- */}
-                {/*  ------Header------- */}
-                <MainHeader addCard={addCard} />
-                {/*  ------Header------- */}
-                {/*  ------Column------- */}
-
-                {isLoading ? (
-                    LoadPage()
-                ) : (
-                    <MainContent>
-                        {statusList.map((status) => (
-                            <ColumnStatus
-                                status={status}
-                                key={status}
-                                CardList={cards.filter((el) => el.status === status)}
-                            />
-                        ))}
-                    </MainContent>
-                )}
-                {/*  ------Column------- */}
-            </Wrapper>
-        </>
+        <Routes>
+            <Route element={<PrivateRoute user={user} />}>
+                <Route
+                    path={AppRoutes.PAGE_MAIN}
+                    element={<MainPage />}
+                >
+                    <Route
+                        path={AppRoutes.PAGE_CARD}
+                        element={<CardPage />}
+                    />
+                    <Route
+                        path={AppRoutes.PAGE_EXIT}
+                        element={<ExitPage Author={Author} />}
+                    />
+                </Route>
+            </Route>
+            {/* ----------------------------------------- */}
+            <Route
+                path={AppRoutes.PAGE_MAIN}
+                element={<MainPage />}
+            />
+            <Route
+                path={AppRoutes.PAGE_AUTHORIZATION}
+                element={<AuthorizationPage GoToMenu={GoToMenu} />}
+            />
+            <Route
+                path={AppRoutes.PAGE_REGISTRATION}
+                element={<RegistrationPage />}
+            />
+            <Route
+                path={AppRoutes.PAGE_NOT_FOUND}
+                element={<NotFoundPage />}
+            />
+        </Routes>
     );
 }
 

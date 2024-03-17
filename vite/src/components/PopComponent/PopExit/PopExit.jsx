@@ -1,4 +1,7 @@
-function PopExit() {
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../AppRoutes/AppRoutes";
+
+function PopExit({ Author }) {
     return (
         <div
             className="pop-exit"
@@ -16,16 +19,17 @@ function PopExit() {
                     >
                         <div className="pop-exit__form-group">
                             <button
+                                onClick={Author}
                                 className="pop-exit__exit-yes _hover01"
                                 id="exitYes"
                             >
-                                <a href="modal/signin.html">Да, выйти</a>{" "}
+                                <Link to={AppRoutes.PAGE_AUTHORIZATION}>Да, выйти</Link>
                             </button>
                             <button
                                 className="pop-exit__exit-no _hover03"
                                 id="exitNo"
                             >
-                                <a href="main.html">Нет, остаться</a>{" "}
+                                <Link to={AppRoutes.PAGE_MAIN}>Нет, остаться</Link>
                             </button>
                         </div>
                     </form>

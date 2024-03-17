@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import * as C from "./CardForm.style";
 
-function CardForm({ statusTask, taskType, date }) {
+function CardForm({ statusTask, taskType, date, id }) {
     return (
         <C.Card>
             <C.CardsItem>
@@ -9,24 +10,18 @@ function CardForm({ statusTask, taskType, date }) {
                         <C.CardTopic $topicColor={C.topicName[statusTask]}>
                             <C.TopicText>{statusTask}</C.TopicText>
                         </C.CardTopic>
-                        <a
-                            href="#popBrowse"
-                            target="_self"
-                        >
+                        <Link to={`card/${id}`}>
                             <C.CardBtn>
                                 <div></div>
                                 <div></div>
                                 <div></div>
                             </C.CardBtn>
-                        </a>
+                        </Link>
                     </C.CardGroup>
                     <C.CardContent>
-                        <a
-                            href=""
-                            target="_blank"
-                        >
+                        <Link to={`card/${id}`}>
                             <C.CardTitle>{taskType}</C.CardTitle>
-                        </a>
+                        </Link>
                         <C.CardDate>
                             <C.CardDateSvg
                                 xmlns="http://www.w3.org/2000/svg"
