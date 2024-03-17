@@ -30,7 +30,7 @@ export const ModalBlock = styled.div`
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 `;
 
-export const ModalFromLogin = styled.form`
+export const ModalFromLogin = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

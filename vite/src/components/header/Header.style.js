@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
+export const MainSubject = {
+    white: `
+    background-color: #ffffff;
+    `,
+    dark: `
+    background-color: #20202C;
+    `,
+};
+
 export const StyleHeader = styled.header`
     width: 100%;
     margin: 0 auto;
-    background-color: #ffffff;
 `;
 
 export const HeaderBlock = styled.div`

@@ -12,11 +12,11 @@ function ColumnStatus({ status, CardList }) {
                 <Card>
                     {CardList.map((el) => (
                         <CardForm
-                            statusTask={el.theme}
+                            statusTask={el.topic}
                             taskType={el.title}
                             date={el.date}
-                            key={el.id}
-                            id={el.id}
+                            key={el._id}
+                            id={el._id}
                         />
                     ))}
                 </Card>
