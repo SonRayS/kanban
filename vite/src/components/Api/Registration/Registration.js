@@ -1,5 +1,4 @@
 import { UserHost } from "../AuthorUser/AuthorUser";
-import RegResponse from "./Response/RegistrationResponseApi";
 
 export async function UserRegistration({ name, login, password }) {
     await fetch(UserHost, {
@@ -11,12 +10,10 @@ export async function UserRegistration({ name, login, password }) {
         }),
     }).then((response) => {
         if (response.status === 400) {
-            const status = response.status;
-            RegResponse({ status });
+            alert("Ваш аккаунт успешно создан!");
             throw new Error();
         } else if (response.status === 201) {
-            const status = response.status;
-            RegResponse({ status });
+            alert("Такой аккаунт уже есть!");
         }
         return console.log(response), response.json();
     });
