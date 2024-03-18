@@ -5,7 +5,7 @@ import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes.js";
 import { PageNotFoundP, PageNotFoundImg, ModalBtnText, ModalButton } from "./NotFoundPage.style.js";
 
-function NotFoundPage() {
+function NotFoundPage({ errorText }) {
     return (
         <>
             <GlobalStyle />
@@ -17,7 +17,7 @@ function NotFoundPage() {
                     />
                 </Link>
                 <PageNotFoundP>
-                    Error 404, page not found :C{" "}
+                    {errorText ? errorText : "Error 404, page not found :C"}
                     <ModalButton
                         $HoverNumber={"hover01"}
                         id="SignUpEnter"

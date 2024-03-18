@@ -1,6 +1,6 @@
 import "../../App.css";
 import React from "react";
-import MainHeader from "../../components/Header/header.jsx";
+import MainHeader from "../../components/Header/Header.jsx";
 import ColumnStatus from "../../components/ColumnStatus/ColumnStatus.jsx";
 import MainContent from "../../components/MainContent/MainContent.jsx";
 import LoadPage from "../../components/Loading/LoadingMassage/Loading.jsx";
@@ -13,6 +13,11 @@ const statusList = ["Без статуса", "Нужно сделать", "В р
 
 function MainPage({ user }) {
     const [isLoading, setIsLoading] = useState(true);
+    /*     useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []); */
 
     const [cards, setCards] = useState([]);
 
