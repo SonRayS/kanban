@@ -67,7 +67,7 @@ export const HoverEffect = {
     `,
 };
 
-export const HeaderBtnMainNew = styled.button`
+export const HeaderBtnNewTask = styled.button`
     width: 178px;
     height: 30px;
     border-radius: 4px;
@@ -78,11 +78,12 @@ export const HeaderBtnMainNew = styled.button`
     line-height: 1;
     font-weight: 500;
     margin-right: 20px;
-    a {
-        color: #ffffff;
-    }
 
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
+`;
+
+export const HeaderBtnNewTask_a = styled.a`
+    color: #ffffff;
 `;
 
 export const HeaderUser = styled.a`
@@ -131,6 +132,62 @@ export const PopUserSet = styled(HeaderPopUserSet)`
     &:target {
         display: block;
     }
+`;
+
+export const PopUserSet_name = styled.p`
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.14px;
+    margin-bottom: 4px;
+`;
+
+export const PopUserSet_mail = styled.p`
+    color: #94a6be;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.14px;
+    margin-bottom: 10px;
+`;
+
+export const PopUserSet_theme = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    & input[type="checkbox"] {
+        position: relative;
+        width: 24px;
+        height: 13px;
+        border-radius: 100px;
+        background: #eaeef6;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    & input[type="checkbox"]::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background-color: #94a6be;
+        transition: 0.5s;
+    }
+    & input:checked[type="checkbox"]::before {
+        left: 12px;
+    }
+`;
+
+export const PopUserSet_theme_p = styled.p`
+    color: #000;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.14px;
 `;
 
 export const Checkbox = styled.input``;

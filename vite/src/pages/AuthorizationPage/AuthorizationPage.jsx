@@ -33,9 +33,9 @@ function AuthorizationPage({ login }) {
             <A.ContainerSignIn>
                 <A.Modal>
                     <A.ModalBlock>
-                        <div className="modal__ttl">
-                            <h2>Вход</h2>
-                        </div>
+                        <A.ModalBlock_ttl>
+                            <A.ModalBlock_ttl_p>Вход</A.ModalBlock_ttl_p>
+                        </A.ModalBlock_ttl>
                         <A.ModalFromLogin
                             id="formLogIn"
                             action="#"

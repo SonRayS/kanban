@@ -1,41 +1,38 @@
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../AppRoutes/AppRoutes";
+import * as E from "./PopExit.style";
 
 function PopExit({ exit }) {
     return (
-        <div
-            className="pop-exit"
-            id="popExit"
-        >
-            <div className="pop-exit__container">
-                <div className="pop-exit__block">
-                    <div className="pop-exit__ttl">
-                        <h2>Выйти из аккаунта?</h2>
-                    </div>
-                    <form
-                        className="pop-exit__form"
+        <E.PopExit id="popExit">
+            <E.PopExit__container>
+                <E.PopExit__block>
+                    <E.PopExit__ttl>
+                        <E.PopExit__ttl_h2>Выйти из аккаунта?</E.PopExit__ttl_h2>
+                    </E.PopExit__ttl>
+                    <E.PopExit__form
                         id="formExit"
                         action="#"
                     >
-                        <div className="pop-exit__form-group">
-                            <button
+                        <E.PopExit__form_group>
+                            <E.PopExit__exit_yes
                                 onClick={exit}
-                                className="pop-exit__exit-yes _hover01"
+                                $HoverNumber={"hover01"}
                                 id="exitYes"
                             >
                                 Да, выйти
-                            </button>
-                            <button
-                                className="pop-exit__exit-no _hover03"
+                            </E.PopExit__exit_yes>
+                            <E.PopExit__exit_no
+                                $HoverNumber={"hover03"}
                                 id="exitNo"
                             >
                                 <Link to={AppRoutes.PAGE_MAIN}>Нет, остаться</Link>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                            </E.PopExit__exit_no>
+                        </E.PopExit__form_group>
+                    </E.PopExit__form>
+                </E.PopExit__block>
+            </E.PopExit__container>
+        </E.PopExit>
     );
 }
 
