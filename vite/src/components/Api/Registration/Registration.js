@@ -10,10 +10,10 @@ export async function UserRegistration({ name, login, password }) {
         }),
     }).then((response) => {
         if (response.status === 400) {
-            alert("Ваш аккаунт успешно создан!");
+            alert("Такой аккаунт уже есть!");
             throw new Error();
         } else if (response.status === 201) {
-            alert("Такой аккаунт уже есть!");
+            alert("Ваш аккаунт успешно создан!");
         }
         return console.log(response), response.json();
     });
