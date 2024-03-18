@@ -1,8 +1,7 @@
-const UserHost = "https://wedev-api.sky.pro/api/user/";
-const Login = "login";
+export const UserHost = "https://wedev-api.sky.pro/api/user/login";
 
 export function AuthorUser({ login, password }) {
-    return fetch(UserHost + Login, {
+    return fetch(UserHost, {
         method: "POST",
         body: JSON.stringify({
             login,

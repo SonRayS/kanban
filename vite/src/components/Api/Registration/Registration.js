@@ -1,5 +1,4 @@
-const UserHost = "https://wedev-api.sky.pro/api/user";
-const Login = "login";
+import { UserHost } from "../AuthorUser/AuthorUser";
 
 export async function UserRegistration({ name, login, password }) {
     await fetch(UserHost, {

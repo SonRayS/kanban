@@ -1,10 +1,14 @@
-export const UserTask = "https://wedev-api.sky.pro/api/kanban";
+import { UserTask } from "../GetTask/GetTask";
 
-export async function getTask({ token }) {
+export async function addTask({ token }) {
     const response = await fetch(UserTask, {
         headers: {
             Authorization: `Token: ${token}`,
         },
+        method: "POST",
+        body: JSON.stringify({
+            text,
+        }),
     });
 
     const data = await response.json();
