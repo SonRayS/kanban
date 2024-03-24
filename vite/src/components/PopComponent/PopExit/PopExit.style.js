@@ -51,7 +51,7 @@ export const PopExit__ttl_h2 = styled.h2`
     margin-bottom: 20px;
 `;
 
-export const PopExit__form = styled.form``;
+export const PopExit__form = styled.div``;
 
 export const PopExit__form_group = styled.div`
     width: 100%;

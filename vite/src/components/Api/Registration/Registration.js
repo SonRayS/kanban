@@ -15,6 +15,6 @@ export async function UserRegistration({ name, login, password }) {
         } else if (response.status === 201) {
             alert("Ваш аккаунт успешно создан!");
         }
-        return console.log(response), response.json();
+        return response.json();
     });
 }

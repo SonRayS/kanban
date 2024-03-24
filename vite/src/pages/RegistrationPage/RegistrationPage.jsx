@@ -22,7 +22,7 @@ function RegistrationPage() {
 
     const sendFormReg = async (e) => {
         e.preventDefault();
-        console.log("data", regData);
+        /* console.log("data", regData); */
         await UserRegistration(regData);
     };
 
