@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./header.style";
 import { Container } from "../GlobalStyle/Global.style";
 import { Link } from "react-router-dom";
@@ -10,13 +10,17 @@ function MainHeader({ addCard }) {
         setIsOpen((prevState) => !prevState);
     };
 
+    /*   useEffect(() => {
+        GetTask().then((toDos) => console.log(toDos)), [];
+    }); */
+
     return (
         <S.StyleHeader>
             <Container>
                 <S.HeaderBlock>
                     <S.HeaderLogo>
                         <Link
-                            to="/"
+                            to={AppRoutes.PAGE_MAIN}
                             target="_self"
                         >
                             <img
@@ -25,25 +29,15 @@ function MainHeader({ addCard }) {
                             />
                         </Link>
                     </S.HeaderLogo>
-                    <div className="header__logo _dark">
-                        <Link
-                            to="/"
-                            target="_self"
-                        >
-                            <img
-                                src="/public/logo_dark.png"
-                                alt="logo"
-                            />
-                        </Link>
-                    </div>
+
                     <S.HeaderNav>
-                        <S.HeaderBtnMainNew
+                        <S.HeaderBtnNewTask
                             $HoverNumber={"hover01"}
                             id="btnMainNew"
                             onClick={addCard}
                         >
-                            <a>Создать новую задачу</a>
-                        </S.HeaderBtnMainNew>
+                            <S.HeaderBtnNewTask_a>Создать новую задачу</S.HeaderBtnNewTask_a>
+                        </S.HeaderBtnNewTask>
 
                         <S.HeaderUser
                             $HoverNumber={"hover02"}
@@ -54,16 +48,16 @@ function MainHeader({ addCard }) {
                         </S.HeaderUser>
                         {isOpen && (
                             <S.PopUserSet id="user-set-target">
-                                {/* <!-- <a href="">x</a> --> */}
-                                <p className="pop-user-set__name">Ivan Ivanov</p>
-                                <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-                                <div className="pop-user-set__theme">
-                                    <p>Темная тема</p>
+                                <S.PopUserSet_name>Ivan Ivanov</S.PopUserSet_name>
+                                <S.PopUserSet_mail>ivan.ivanov@gmail.com</S.PopUserSet_mail>
+                                <S.PopUserSet_theme>
+                                    <S.PopUserSet_theme_p>Темная тема</S.PopUserSet_theme_p>
                                     <S.Checkbox
+                                        onClick={isOpenMenu}
                                         type="checkbox"
                                         name="checkbox"
                                     />
-                                </div>
+                                </S.PopUserSet_theme>
                                 <S.HeaderBtnMenu $HoverNumber={"hover03"}>
                                     <Link to={AppRoutes.PAGE_EXIT}>Выйти</Link>
                                 </S.HeaderBtnMenu>

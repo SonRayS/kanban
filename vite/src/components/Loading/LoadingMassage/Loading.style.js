@@ -14,11 +14,13 @@ export const Loading = styled.div`
     list-style-type: none;
     color: rgb(110, 110, 110);
     margin-top: 64px;
-    li {
-        margin-bottom: 16px;
-    }
-    img {
-        width: 64px;
-        height: 64px;
-    }
+`;
+
+export const Loading_li = styled.li`
+    margin-bottom: 16px;
+`;
+
+export const Loading_img = styled.img`
+    width: 64px;
+    height: 64px;
 `;

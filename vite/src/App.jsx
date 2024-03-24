@@ -21,17 +21,17 @@ import "./App.css";
 */
 
 function App() {
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(null);
 
     const navigate = useNavigate();
 
-    function GoToMenu() {
-        setUser(true);
+    function login(newUser) {
+        setUser(newUser);
         navigate(AppRoutes.PAGE_MAIN);
     }
-    function Author() {
-        setUser(true);
-        navigate(AppRoutes.PAGE_EXIT);
+    function exit() {
+        setUser(null);
+        navigate(AppRoutes.PAGE_AUTHORIZATION);
     }
 
     return (
@@ -39,7 +39,7 @@ function App() {
             <Route element={<PrivateRoute user={user} />}>
                 <Route
                     path={AppRoutes.PAGE_MAIN}
-                    element={<MainPage />}
+                    element={<MainPage user={user} />}
                 >
                     <Route
                         path={AppRoutes.PAGE_CARD}
@@ -47,7 +47,7 @@ function App() {
                     />
                     <Route
                         path={AppRoutes.PAGE_EXIT}
-                        element={<ExitPage Author={Author} />}
+                        element={<ExitPage exit={exit} />}
                     />
                 </Route>
             </Route>
@@ -58,7 +58,7 @@ function App() {
             />
             <Route
                 path={AppRoutes.PAGE_AUTHORIZATION}
-                element={<AuthorizationPage GoToMenu={GoToMenu} />}
+                element={<AuthorizationPage login={login} />}
             />
             <Route
                 path={AppRoutes.PAGE_REGISTRATION}

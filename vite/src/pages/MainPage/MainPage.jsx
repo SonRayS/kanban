@@ -1,26 +1,38 @@
 import "../../App.css";
 import React from "react";
-import MainHeader from "../../components/Header/header.jsx";
+import MainHeader from "../../components/Header/Header.jsx";
 import ColumnStatus from "../../components/ColumnStatus/ColumnStatus.jsx";
 import MainContent from "../../components/MainContent/MainContent.jsx";
 import LoadPage from "../../components/Loading/LoadingMassage/Loading.jsx";
-import CardList from "../../data.js";
 import { useState, useEffect } from "react";
 import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { Wrapper } from "../../App.style.js";
 import { Outlet } from "react-router-dom";
-
+import { getTask } from "../../components/Api/GetTask/GetTask.js";
 const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
 
-function MainPage() {
+function MainPage({ user }) {
     const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
+    /*     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 2000);
-    }, []);
+    }, []); */
 
-    const [cards, setCards] = useState(CardList);
+    const [cards, setCards] = useState([]);
+
+    useEffect(() => {
+        getTask({ token: user.token })
+            .then((response) => {
+                console.log(response);
+                setCards(response.tasks);
+                setIsLoading(false);
+            })
+            .catch(() => {
+                alert(error);
+            });
+    }, [user]);
+
     function addCard() {
         const newCard = {
             id: cards.length + 1,

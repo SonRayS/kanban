@@ -1,10 +1,10 @@
-import { Loading } from "./Loading.style";
+import { Loading, Loading_li, Loading_img } from "./Loading.style";
 
 function LoadPage() {
     return (
         <Loading>
-            <li>Loading...</li>
-            <img
+            <Loading_li>Loading...</Loading_li>
+            <Loading_img
                 src="/public/loading.gif"
                 alt=""
             />
