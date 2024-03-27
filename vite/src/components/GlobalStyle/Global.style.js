@@ -1,19 +1,17 @@
 import { styled, createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-        *{
+    *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
     
-    *:before,
-    *:after {
+    *::before,*::after {
         box-sizing: border-box;
     }
     
-    a,
-    a:visited {
+    a,a:visited {
         text-decoration: none;
         cursor: pointer;
     }
@@ -33,7 +31,20 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: #000000;
-}
+    }
+
+    html[data-theme="false"] {
+        background-color: rgb(46, 46, 46);
+        color: white;
+        transition: background-color 300ms linear;
+    }
+    
+    html[data-theme="true"] {
+        background-color: rgb(255, 255, 255);
+        color: black;
+        transition: background-color 300ms linear;
+    }
+    
 `;
 
 export const Container = styled.div`
