@@ -1,3 +1,5 @@
+import Calendar from "../../Calendar/Calendar";
+
 function PopNewCard() {
     return (
         <div
@@ -51,7 +53,12 @@ function PopNewCard() {
                                     ></textarea>
                                 </div>
                             </form>
-                            <div className="pop-new-card__calendar calendar">
+
+                            {/* ------------CALENDAR----------- */}
+
+                            {Calendar}
+
+                            {/* <div className="pop-new-card__calendar calendar">
                                 <p className="calendar__ttl subttl">Даты</p>
                                 <div className="calendar__block">
                                     <div className="calendar__nav">
@@ -145,7 +152,9 @@ function PopNewCard() {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
+
+                            {/* ------------CALENDAR----------- */}
                         </div>
                         <div className="pop-new-card__categories categories">
                             <p className="categories__p subttl">Категория</p>
