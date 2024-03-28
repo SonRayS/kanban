@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
 import * as A from "./AuthorizationPage.style";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { useUser } from "../../components/Hooks/useUser";
 
 function AuthorizationPage() {
     const { login } = useUser();
+    const navigate = useNavigate();
     const [loginData, setLoginData] = useState({
         login: "",
         password: "",
@@ -27,6 +28,7 @@ function AuthorizationPage() {
         e.preventDefault();
         await AuthorUser(loginData).then((data) => {
             login(data.user);
+            navigate(AppRoutes.PAGE_MAIN);
         });
     };
 
