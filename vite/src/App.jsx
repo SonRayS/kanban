@@ -36,10 +36,10 @@ function App() {
 
     return (
         <Routes>
-            <Route element={<PrivateRoute user={user} />}>
+            <Route element={<PrivateRoute />}>
                 <Route
                     path={AppRoutes.PAGE_MAIN}
-                    element={<MainPage user={user} />}
+                    element={<MainPage />}
                 >
                     <Route
                         path={AppRoutes.PAGE_CARD}
@@ -47,7 +47,7 @@ function App() {
                     />
                     <Route
                         path={AppRoutes.PAGE_EXIT}
-                        element={<ExitPage exit={exit} />}
+                        element={<ExitPage />}
                     />
                 </Route>
             </Route>
@@ -58,7 +58,7 @@ function App() {
             />
             <Route
                 path={AppRoutes.PAGE_AUTHORIZATION}
-                element={<AuthorizationPage login={login} />}
+                element={<AuthorizationPage />}
             />
             <Route
                 path={AppRoutes.PAGE_REGISTRATION}

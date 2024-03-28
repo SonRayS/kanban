@@ -3,8 +3,10 @@ import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
 import * as A from "./AuthorizationPage.style";
 import { useState } from "react";
 import { AuthorUser } from "../../components/Api/AuthorUser/AuthorUser";
+import { useUser } from "../../components/Hooks/useUser";
 
-function AuthorizationPage({ login }) {
+function AuthorizationPage() {
+    const { login } = useUser();
     const [loginData, setLoginData] = useState({
         login: "",
         password: "",

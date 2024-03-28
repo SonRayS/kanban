@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../AppRoutes/AppRoutes";
 import * as E from "./PopExit.style";
+import { useUser } from "../../Hooks/useUser";
 
-function PopExit({ exit }) {
+function PopExit() {
+    const { logout } = useUser();
+    const navigate = useNavigate();
+
     return (
         <E.PopExit id="popExit">
             <E.PopExit__container>
@@ -16,7 +20,10 @@ function PopExit({ exit }) {
                     >
                         <E.PopExit__form_group>
                             <E.PopExit__exit_yes
-                                onClick={exit}
+                                onClick={() => {
+                                    logout();
+                                    navigate(AppRoutes.PAGE_MAIN);
+                                }}
                                 $HoverNumber={"hover01"}
                                 id="exitYes"
                             >
