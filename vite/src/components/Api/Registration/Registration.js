@@ -1,17 +1,17 @@
 import { UserHost } from "../AuthorUser/AuthorUser";
 
-export function UserRegistration({ name, login, password }) {
-    fetch(UserHost, {
+export async function UserRegistration({ name, login, password }) {
+    const response = await fetch(UserHost, {
         method: "POST",
         body: JSON.stringify({
             name,
             login,
             password,
         }),
-    }).then((response) => {
-        if (response.status === 400) {
-            throw new Error(Error, "Такой аккаунт уже есть!");
-        }
-        return response.json();
     });
+    if (response.status === 400) {
+        throw new Error(Error, "Такой аккаунт уже есть!");
+    }
+    const user = await response.json();
+    return user;
 }
