@@ -2,8 +2,8 @@ import { createContext, useState } from "react";
 
 function getUserFromLocalStorage() {
     try {
-        return JSON.parse(localStorage.getItem("userKey"));
-    } catch (console) {
+        return JSON.parse(localStorage.getItem("user"));
+    } catch (error) {
         console.log(error, "Data = null");
         return null;
     }
@@ -11,25 +11,18 @@ function getUserFromLocalStorage() {
 
 export const UserContext = createContext(null);
 
-export function useUserContext(children) {
+export function UseProvider({ children }) {
     const [user, setUser] = useState(getUserFromLocalStorage());
 
-    function login({ newUser }) {
+    function login(newUser) {
         setUser(newUser);
-        localStorage.setItem("userKey", JSON.stringify(newUser));
+        localStorage.setItem("user", JSON.stringify(newUser));
     }
 
     function logout() {
         setUser(null);
-        localStorage.removeItem("userKey");
+        localStorage.removeItem("user");
     }
 
     return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
 }
-/* const user = useUserContext(UserContext);
-
-if (!user) {
-    throw new Error("Данные пользователя не были найдены");
-}
-
-return user; */

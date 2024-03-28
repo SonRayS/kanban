@@ -3,7 +3,7 @@ import * as S from "./header.style";
 import { Container } from "../GlobalStyle/Global.style";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../AppRoutes/AppRoutes";
-import useTheme from "../Hooks/use-theme";
+import useTheme from "../Hooks/useTheme";
 
 function MainHeader({ addCard }) {
     /* --------------MENU------------------- */
