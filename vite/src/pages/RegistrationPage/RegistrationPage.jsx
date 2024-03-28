@@ -8,6 +8,7 @@ import { useUser } from "../../components/Hooks/useUser";
 function RegistrationPage() {
     const { login } = useUser();
     const navigate = useNavigate();
+
     const [regData, setRegData] = useState({
         name: "",
         login: "",
@@ -26,7 +27,7 @@ function RegistrationPage() {
     const sendFormReg = async (e) => {
         e.preventDefault();
         await UserRegistration(regData).then((data) => {
-            login(date.user);
+            login(data.user);
             navigate(AppRoutes.PAGE_MAIN);
         });
     };

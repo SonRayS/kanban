@@ -8,6 +8,7 @@ import { useUser } from "../../components/Hooks/useUser";
 function AuthorizationPage() {
     const { login } = useUser();
     const navigate = useNavigate();
+
     const [loginData, setLoginData] = useState({
         login: "",
         password: "",

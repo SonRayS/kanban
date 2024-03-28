@@ -11,7 +11,7 @@ function getUserFromLocalStorage() {
 
 export const UserContext = createContext(null);
 
-export function UseProvider({ children }) {
+export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(getUserFromLocalStorage());
 
     function login(newUser) {
@@ -25,4 +25,4 @@ export function UseProvider({ children }) {
     }
 
     return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
-}
+};
