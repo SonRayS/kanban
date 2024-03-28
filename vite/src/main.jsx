@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { useUserContext } from "./contexts/userLocalStorage.jsx";
+import { UseProvider } from "./contexts/userLocalStorage.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
-        <useUserContext>
+        <UseProvider>
             <App />
-        </useUserContext>
+        </UseProvider>
     </BrowserRouter>
 );
