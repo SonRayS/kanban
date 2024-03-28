@@ -10,7 +10,7 @@ export async function UserRegistration({ name, login, password }) {
         }),
     });
     if (response.status === 400) {
-        throw new Error(Error, "Такой аккаунт уже есть!");
+        throw new Error("Такой аккаунт уже есть!");
     }
     const user = await response.json();
     return user;
