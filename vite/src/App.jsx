@@ -7,6 +7,7 @@ import CardPage from "./pages/CardPage/CardPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PopNewCard from "./components/PopComponent/PopNewCard/PopNewCard";
 import "./App.css";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
             <Route
                 path={AppRoutes.PAGE_AUTHORIZATION}
                 element={<AuthorizationPage />}
+            />
+            <Route
+                path={AppRoutes.PAGE_TASK}
+                element={<PopNewCard />}
             />
             <Route
                 path={AppRoutes.PAGE_REGISTRATION}
