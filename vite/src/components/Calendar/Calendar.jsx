@@ -9,7 +9,7 @@ export default function Calendar() {
 
     let footer = <p>Пожалуйста, выберите дату.</p>;
     if (selectedDate) {
-        footer = <p>Вы выбрали {format(selectedDate, "pp", { locale: ru })}.</p>;
+        footer = <p>Вы выбрали {format(selectedDate, "PP", { locale: ru })}.</p>;
     }
     return (
         <DayPicker
@@ -17,6 +17,7 @@ export default function Calendar() {
             selected={selectedDate}
             onSelect={setSelectedDate}
             footer={footer}
+            locale={ru}
         />
     );
 }
