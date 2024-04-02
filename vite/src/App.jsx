@@ -38,7 +38,6 @@ function App() {
                 path={AppRoutes.PAGE_AUTHORIZATION}
                 element={<AuthorizationPage />}
             />
-            Ы
             <Route
                 path={AppRoutes.PAGE_TASK}
                 element={<NewCardPage />}

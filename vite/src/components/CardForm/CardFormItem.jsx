@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import * as C from "./CardForm.style";
 
 function CardForm({ statusTask, taskType, date, id }) {
-    /*  console.log("status", statusTask, "taskType", taskType, "date", date, "id", id); */
+    /* console.log("status", statusTask, "taskType", taskType, "date", date, "id", id); */
     return (
         <C.Card>
             <C.CardsItem>

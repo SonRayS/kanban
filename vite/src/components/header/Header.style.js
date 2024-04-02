@@ -44,6 +44,7 @@ export const HoverEffect = {
     hover01: `
         &:hover {
             background-color: #33399b;
+            color: #ffffff;
         }
     `,
     hover02: `
