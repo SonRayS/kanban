@@ -1,5 +1,7 @@
 import Calendar from "../../Calendar/Calendar";
 import { useState } from "react";
+import * as N from "./PopNewCard.style";
+import { PopBrowse__subLabelTtl } from "../PopBrowse/PopBrowse.style";
 
 function PopNewCard() {
     const [newTask, setNewTask] = useState({
@@ -23,66 +25,45 @@ function PopNewCard() {
     };
 
     return (
-        <div
-            className="pop-new-card"
-            id="popNewCard"
-        >
-            <div className="pop-new-card__container">
-                <div className="pop-new-card__block">
-                    <div className="pop-new-card__content">
-                        <h3 className="pop-new-card__ttl">Создание задачи</h3>
-                        <a
-                            href="#"
-                            className="pop-new-card__close"
-                        >
-                            &#10006;
-                        </a>
-                        <div className="pop-new-card__wrap">
-                            <form
-                                className="pop-new-card__form form-new"
+        <N.PopNewCard id="popNewCard">
+            <N.PopNewCard__container>
+                <N.PopNewCard__block>
+                    <N.PopNewCard__content>
+                        <N.PopNewCard__tll>Создание задачи</N.PopNewCard__tll>
+                        <N.PopNewCard__close href="#">&#10006;</N.PopNewCard__close>
+                        <N.PopNewCard__wrap>
+                            <N.PopNewCard__form
                                 id="formNewCard"
                                 action="#"
                             >
-                                <div className="form-new__block">
-                                    <label
-                                        htmlFor="formTitle"
-                                        className="subttl"
-                                    >
-                                        Название задачи
-                                    </label>
-                                    <input
+                                <N.PopNewCard__nweBlock>
+                                    <PopBrowse__subLabelTtl htmlFor="formTitle">Название задачи</PopBrowse__subLabelTtl>
+                                    <N.PopNewCard__input
                                         value={newTask.title}
                                         onChange={handleInputChange}
-                                        className="form-new__input"
                                         type="text"
                                         name="title"
                                         id="formTitle"
                                         placeholder="Введите название задачи..."
                                         autoFocus
                                     />
-                                </div>
-                                <div className="form-new__block">
-                                    <label
-                                        htmlFor="textArea"
-                                        className="subttl"
-                                    >
-                                        Описание задачи
-                                    </label>
-                                    <textarea
+                                </N.PopNewCard__nweBlock>
+                                <N.PopNewCard__nweBlock>
+                                    <PopBrowse__subLabelTtl htmlFor="textArea">Описание задачи</PopBrowse__subLabelTtl>
+                                    <N.PopNewCard__area
                                         value={newTask.description}
                                         onChange={handleInputChange}
-                                        className="form-new__area"
                                         name="description"
                                         id="textArea"
                                         placeholder="Введите описание задачи..."
-                                    ></textarea>
-                                </div>
-                            </form>
+                                    ></N.PopNewCard__area>
+                                </N.PopNewCard__nweBlock>
+                            </N.PopNewCard__form>
 
                             {/* ------------CALENDAR----------- */}
                             <Calendar />
                             {/* ------------CALENDAR----------- */}
-                        </div>
+                        </N.PopNewCard__wrap>
                         <div className="prod_checkbox">
                             <div className="radio-toolbar">
                                 <input
@@ -113,17 +94,17 @@ function PopNewCard() {
                                 <label htmlFor="radio3">Copywriting</label>
                             </div>
                         </div>
-                        <button
-                            className="form-new__create _hover01"
+                        <N.PopNewCard__create
+                            $HoverNumber={"hover01"}
                             id="btnCreate"
                             onClick={handleFromSubmit}
                         >
                             Создать задачу
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        </N.PopNewCard__create>
+                    </N.PopNewCard__content>
+                </N.PopNewCard__block>
+            </N.PopNewCard__container>
+        </N.PopNewCard>
     );
 }
 
