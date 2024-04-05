@@ -3,8 +3,11 @@ import { AppRoutes } from "../../AppRoutes/AppRoutes";
 import { useParams } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import * as B from "./PopBrowse.style";
+import { useState } from "react";
 
 function PopBrowse() {
+    const [selectedDate, setSelectedDate] = useState(null);
+
     const { id } = useParams();
     return (
         <B.PopBrowse id="popBrowse">
@@ -55,7 +58,10 @@ function PopBrowse() {
                                 </B.PopBrowse__formBrowseBlock>
                             </B.PopBrowse__form>
                             {/* ------------CALENDAR----------- */}
-                            <Calendar />
+                            <Calendar
+                                selectedDate={selectedDate}
+                                setSelectedDate={setSelectedDate}
+                            />
                             {/* ------------CALENDAR----------- */}
                         </B.PopBrowse__wrap>
                         <B.PopBrowse__themeDown>

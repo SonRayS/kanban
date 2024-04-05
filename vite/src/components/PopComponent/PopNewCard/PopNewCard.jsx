@@ -2,17 +2,46 @@ import Calendar from "../../Calendar/Calendar";
 import { useState } from "react";
 import * as N from "./PopNewCard.style";
 import { PopBrowse__subLabelTtl } from "../PopBrowse/PopBrowse.style";
+import { useTasks } from "../../Hooks/useTasks";
+import { useUser } from "../../Hooks/useUser";
+import { useNavigate } from "react-router-dom";
+import { Container } from "../../GlobalStyle/Global.style";
+import { AppRoutes } from "../../AppRoutes/AppRoutes";
+import { Link } from "react-router-dom";
+import { AddTask } from "../../Api/AddTask/AddTask";
 
 function PopNewCard() {
+    const { user } = useUser();
+    const { setCards } = useTasks();
+    const navigate = useNavigate();
+
+    const [selectedDate, setSelectedDate] = useState(null);
+
     const [newTask, setNewTask] = useState({
         title: "",
         description: "",
         topic: "",
     });
 
-    const handleFromSubmit = (e) => {
+    const handleFromSubmit = async (e) => {
         e.preventDefault();
-        console.log(newTask);
+        const taskData = {
+            ...newTask,
+            date: selectedDate,
+            token: user.token,
+        };
+        await AddTask(taskData)
+            .then((data) => {
+                if (data.error) {
+                    return console.log("Пожалуйста заполните все поля");
+                }
+                setCards(data.tasks);
+                console.log(data.tasks);
+                navigate(AppRoutes.PAGE_MAIN);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
     };
 
     const handleInputChange = (e) => {
@@ -25,86 +54,97 @@ function PopNewCard() {
     };
 
     return (
-        <N.PopNewCard id="popNewCard">
-            <N.PopNewCard__container>
-                <N.PopNewCard__block>
-                    <N.PopNewCard__content>
-                        <N.PopNewCard__tll>Создание задачи</N.PopNewCard__tll>
-                        <N.PopNewCard__close href="#">&#10006;</N.PopNewCard__close>
-                        <N.PopNewCard__wrap>
-                            <N.PopNewCard__form
-                                id="formNewCard"
-                                action="#"
-                            >
-                                <N.PopNewCard__nweBlock>
-                                    <PopBrowse__subLabelTtl htmlFor="formTitle">Название задачи</PopBrowse__subLabelTtl>
-                                    <N.PopNewCard__input
-                                        value={newTask.title}
+        <Container>
+            <N.PopNewCard id="popNewCard">
+                <N.PopNewCard__container>
+                    <N.PopNewCard__block>
+                        <N.PopNewCard__content>
+                            <N.PopNewCard__tll>Создание задачи</N.PopNewCard__tll>
+                            <Link to={AppRoutes.PAGE_MAIN}>
+                                <N.PopNewCard__close>&#10006;</N.PopNewCard__close>
+                            </Link>
+                            <N.PopNewCard__wrap>
+                                <N.PopNewCard__form
+                                    id="formNewCard"
+                                    action="#"
+                                >
+                                    <N.PopNewCard__nweBlock>
+                                        <PopBrowse__subLabelTtl htmlFor="formTitle">
+                                            Название задачи
+                                        </PopBrowse__subLabelTtl>
+                                        <N.PopNewCard__input
+                                            value={newTask.title}
+                                            onChange={handleInputChange}
+                                            type="text"
+                                            name="title"
+                                            id="formTitle"
+                                            placeholder="Введите название задачи..."
+                                            autoFocus
+                                        />
+                                    </N.PopNewCard__nweBlock>
+                                    <N.PopNewCard__nweBlock>
+                                        <PopBrowse__subLabelTtl htmlFor="textArea">
+                                            Описание задачи
+                                        </PopBrowse__subLabelTtl>
+                                        <N.PopNewCard__area
+                                            value={newTask.description}
+                                            onChange={handleInputChange}
+                                            name="description"
+                                            id="textArea"
+                                            placeholder="Введите описание задачи..."
+                                        ></N.PopNewCard__area>
+                                    </N.PopNewCard__nweBlock>
+                                </N.PopNewCard__form>
+
+                                {/* ------------CALENDAR----------- */}
+                                <Calendar
+                                    selectedDate={selectedDate}
+                                    setSelectedDate={setSelectedDate}
+                                />
+                                {/* ------------CALENDAR----------- */}
+                            </N.PopNewCard__wrap>
+                            <N.ProdCheckbox>
+                                <N.RadioToolbar>
+                                    <N.InputRadio1
+                                        type="radio"
+                                        id="radio1"
+                                        name="topic"
+                                        value="Web Design"
                                         onChange={handleInputChange}
-                                        type="text"
-                                        name="title"
-                                        id="formTitle"
-                                        placeholder="Введите название задачи..."
-                                        autoFocus
                                     />
-                                </N.PopNewCard__nweBlock>
-                                <N.PopNewCard__nweBlock>
-                                    <PopBrowse__subLabelTtl htmlFor="textArea">Описание задачи</PopBrowse__subLabelTtl>
-                                    <N.PopNewCard__area
-                                        value={newTask.description}
+                                    <N.RadioToolbarLabel1 htmlFor="radio1">Web Design</N.RadioToolbarLabel1>
+
+                                    <N.InputRadio1
+                                        type="radio"
+                                        id="radio2"
+                                        name="topic"
+                                        value="Research"
                                         onChange={handleInputChange}
-                                        name="description"
-                                        id="textArea"
-                                        placeholder="Введите описание задачи..."
-                                    ></N.PopNewCard__area>
-                                </N.PopNewCard__nweBlock>
-                            </N.PopNewCard__form>
+                                    />
+                                    <N.RadioToolbarLabel2 htmlFor="radio2">Research</N.RadioToolbarLabel2>
 
-                            {/* ------------CALENDAR----------- */}
-                            <Calendar />
-                            {/* ------------CALENDAR----------- */}
-                        </N.PopNewCard__wrap>
-                        <div className="prod_checkbox">
-                            <div className="radio-toolbar">
-                                <input
-                                    onChange={handleInputChange}
-                                    type="radio"
-                                    id="radio1"
-                                    name="topic"
-                                    value="Web Design"
-                                />
-                                <label htmlFor="radio1">Web Design</label>
-
-                                <input
-                                    onChange={handleInputChange}
-                                    type="radio"
-                                    id="radio2"
-                                    name="topic"
-                                    value="Research"
-                                />
-                                <label htmlFor="radio2">Research</label>
-
-                                <input
-                                    onChange={handleInputChange}
-                                    type="radio"
-                                    id="radio3"
-                                    name="topic"
-                                    value="Copywriting"
-                                />
-                                <label htmlFor="radio3">Copywriting</label>
-                            </div>
-                        </div>
-                        <N.PopNewCard__create
-                            $HoverNumber={"hover01"}
-                            id="btnCreate"
-                            onClick={handleFromSubmit}
-                        >
-                            Создать задачу
-                        </N.PopNewCard__create>
-                    </N.PopNewCard__content>
-                </N.PopNewCard__block>
-            </N.PopNewCard__container>
-        </N.PopNewCard>
+                                    <N.InputRadio1
+                                        type="radio"
+                                        id="radio3"
+                                        name="topic"
+                                        value="Copywriting"
+                                        onChange={handleInputChange}
+                                    />
+                                    <N.RadioToolbarLabel3 htmlFor="radio3">Copywriting</N.RadioToolbarLabel3>
+                                </N.RadioToolbar>
+                            </N.ProdCheckbox>
+                            <N.PopNewCard__create
+                                $HoverNumber={"hover01"}
+                                id="btnCreate"
+                                onClick={handleFromSubmit}
+                            >
+                                Создать задачу
+                            </N.PopNewCard__create>
+                        </N.PopNewCard__content>
+                    </N.PopNewCard__block>
+                </N.PopNewCard__container>
+            </N.PopNewCard>
+        </Container>
     );
 }
 

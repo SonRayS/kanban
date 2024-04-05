@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as S from "./header.style";
+import * as S from "./Header.style";
 import { Container } from "../GlobalStyle/Global.style";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../AppRoutes/AppRoutes";
@@ -42,7 +42,9 @@ function MainHeader({ addCard }) {
                             id="btnMainNew"
                             onClick={addCard}
                         >
-                            <S.HeaderBtnNewTask_a>Создать новую задачу</S.HeaderBtnNewTask_a>
+                            <Link to={AppRoutes.PAGE_ADD_TASK}>
+                                <S.HeaderBtnNewTask_a>Создать новую задачу</S.HeaderBtnNewTask_a>
+                            </Link>
                         </S.HeaderBtnNewTask>
 
                         <S.HeaderUser

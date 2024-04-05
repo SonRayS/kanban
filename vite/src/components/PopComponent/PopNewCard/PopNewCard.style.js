@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { HoverEffect } from "../../Header/Header.style";
 
 export const PopNewCard = styled.div`
-    display: none;
     width: 100%;
     min-width: 375px;
     height: 100%;
@@ -29,6 +28,7 @@ export const PopNewCard__container = styled.div`
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.4);
+
     @media screen and (max-width: 660px) {
         padding: 0;
         justify-content: flex-start;
@@ -45,6 +45,7 @@ export const PopNewCard__block = styled.div`
     border-radius: 10px;
     border: 0.7px solid #d4dbe5;
     position: relative;
+
     @media screen and (max-width: 660px) {
         border-radius: 0;
     }
@@ -66,7 +67,7 @@ export const PopNewCard__tll = styled.h3`
     margin-bottom: 20px;
 `;
 
-export const PopNewCard__close = styled.a`
+export const PopNewCard__close = styled.div`
     position: absolute;
     top: 20px;
     right: 30px;
@@ -81,6 +82,7 @@ export const PopNewCard__wrap = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
     @media screen and (max-width: 660px) {
         display: block;
     }
@@ -114,6 +116,7 @@ export const PopNewCard__input = styled.input`
     line-height: 1;
     letter-spacing: -0.14px;
     margin: 20px 0;
+
     &::-moz-placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -121,6 +124,7 @@ export const PopNewCard__input = styled.input`
         color: #94a6be;
         letter-spacing: -0.14px;
     }
+
     &::placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -143,6 +147,7 @@ export const PopNewCard__area = styled.textarea`
     max-width: 370px;
     margin-top: 14px;
     height: 200px;
+
     &::-moz-placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -150,6 +155,7 @@ export const PopNewCard__area = styled.textarea`
         color: #94a6be;
         letter-spacing: -0.14px;
     }
+
     &::placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -157,6 +163,7 @@ export const PopNewCard__area = styled.textarea`
         color: #94a6be;
         letter-spacing: -0.14px;
     }
+
     @media screen and (max-width: 495px) {
         max-width: 100%;
         height: 34px;
@@ -164,6 +171,9 @@ export const PopNewCard__area = styled.textarea`
 `;
 
 export const PopNewCard__create = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 132px;
     height: 30px;
     background-color: #565eef;
@@ -175,9 +185,73 @@ export const PopNewCard__create = styled.button`
     line-height: 1;
     color: #ffffff;
     float: right;
+    cursor: pointer;
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
     @media screen and (max-width: 495px) {
         width: 100%;
         height: 40px;
+    }
+`;
+
+export const RadioToolbar = styled.div``;
+
+export const RadioToolbarLabel1 = styled.label`
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    border-radius: 24px;
+    color: #ff6d00;
+    background: #ffe4c2;
+    cursor: pointer;
+    margin-right: 7px;
+    opacity: 40%;
+
+    &:hover {
+        opacity: 100%;
+    }
+`;
+
+export const RadioToolbarLabel2 = styled.label`
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    border-radius: 24px;
+    color: #06b16e;
+    background: #b4fdd1;
+    cursor: pointer;
+    margin-right: 7px;
+    opacity: 40%;
+
+    &:hover {
+        opacity: 100%;
+    }
+`;
+
+export const RadioToolbarLabel3 = styled.label`
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    border-radius: 24px;
+    color: #9a48f1;
+    background: #e9d4ff;
+    cursor: pointer;
+    margin-right: 7px;
+    opacity: 40%;
+
+    &:hover {
+        opacity: 100%;
+    }
+`;
+
+export const RadioToolbarChecked = styled.div`
+    background-color: #d0ffb7;
+    border: 1px solid #1ca92e;
+    cursor: pointer;
+`;
+
+export const ProdCheckbox = styled.div``;
+
+export const InputRadio1 = styled.input`
+    display: none;
+
+    &:checked + label {
+        opacity: 100%;
     }
 `;

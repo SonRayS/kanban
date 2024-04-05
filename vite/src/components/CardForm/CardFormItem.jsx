@@ -56,7 +56,9 @@ function CardForm({ statusTask, taskType, date, id }) {
                                     </clipPath>
                                 </defs>
                             </C.CardDateSvg>
+                            {/* _____todo______ */}
                             <C.CardDateText>{date}</C.CardDateText>
+                            {/* _____todo______ */}
                         </C.CardDate>
                     </C.CardContent>
                 </C.CardsCard>
