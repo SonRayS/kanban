@@ -83,7 +83,7 @@ export const HeaderBtnNewTask = styled.button`
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;
 
-export const HeaderBtnNewTask_a = styled.a`
+export const HeaderBtnNewText = styled.p`
     color: #ffffff;
 `;
 

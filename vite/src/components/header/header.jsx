@@ -43,7 +43,7 @@ function MainHeader({ addCard }) {
                             onClick={addCard}
                         >
                             <Link to={AppRoutes.PAGE_ADD_TASK}>
-                                <S.HeaderBtnNewTask_a>Создать новую задачу</S.HeaderBtnNewTask_a>
+                                <S.HeaderBtnNewText>Создать новую задачу</S.HeaderBtnNewText>
                             </Link>
                         </S.HeaderBtnNewTask>
 
