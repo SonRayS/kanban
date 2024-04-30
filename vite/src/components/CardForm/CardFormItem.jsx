@@ -3,6 +3,8 @@ import * as C from "./CardForm.style";
 
 function CardForm({ statusTask, taskType, date, id }) {
     /* console.log("status", statusTask, "taskType", taskType, "date", date, "id", id); */
+    let currentDate = new Date(date);
+
     return (
         <C.Card>
             <C.CardsItem>
@@ -57,7 +59,7 @@ function CardForm({ statusTask, taskType, date, id }) {
                                 </defs>
                             </C.CardDateSvg>
                             {/* _____todo______ */}
-                            <C.CardDateText>{date}</C.CardDateText>
+                            <C.CardDateText>{currentDate.toLocaleDateString("ru-RU")}</C.CardDateText>
                             {/* _____todo______ */}
                         </C.CardDate>
                     </C.CardContent>
