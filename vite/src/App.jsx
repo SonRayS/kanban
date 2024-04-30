@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
@@ -6,40 +6,18 @@ import AuthorizationPage from "./pages/AuthorizationPage/AuthorizationPage";
 import CardPage from "./pages/CardPage/CardPage";
 import ExitPage from "./pages/ExitPage/ExitPage";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
-import { useState } from "react";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import NewCardPage from "./pages/NewCard/NewCard";
 import "./App.css";
 
-/* 
-    PAGE_MAIN: "/",
-    PAGE_AUTHORIZATION: "/login",
-    PAGE_REGISTRATION: "/registration",
-    PAGE_CARD: "/card/:id",
-    PAGE_EXIT: "/exit",
-    PAGE_NOT_FOUND: "*",
-    page_main
-*/
-
 function App() {
-    const [user, setUser] = useState(null);
-
-    const navigate = useNavigate();
-
-    function login(newUser) {
-        setUser(newUser);
-        navigate(AppRoutes.PAGE_MAIN);
-    }
-    function exit() {
-        setUser(null);
-        navigate(AppRoutes.PAGE_AUTHORIZATION);
-    }
-
     return (
         <Routes>
-            <Route element={<PrivateRoute user={user} />}>
+            {/* --------------PRIVATE ROUTE----------- */}
+            <Route element={<PrivateRoute />}>
                 <Route
                     path={AppRoutes.PAGE_MAIN}
-                    element={<MainPage user={user} />}
+                    element={<MainPage />}
                 >
                     <Route
                         path={AppRoutes.PAGE_CARD}
@@ -47,18 +25,22 @@ function App() {
                     />
                     <Route
                         path={AppRoutes.PAGE_EXIT}
-                        element={<ExitPage exit={exit} />}
+                        element={<ExitPage />}
                     />
                 </Route>
             </Route>
-            {/* ----------------------------------------- */}
+            {/* -----------------PRIVATE ROUTE------------- */}
             <Route
                 path={AppRoutes.PAGE_MAIN}
                 element={<MainPage />}
             />
             <Route
                 path={AppRoutes.PAGE_AUTHORIZATION}
-                element={<AuthorizationPage login={login} />}
+                element={<AuthorizationPage />}
+            />
+            <Route
+                path={AppRoutes.PAGE_ADD_TASK}
+                element={<NewCardPage />}
             />
             <Route
                 path={AppRoutes.PAGE_REGISTRATION}

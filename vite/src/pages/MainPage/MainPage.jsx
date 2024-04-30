@@ -9,16 +9,12 @@ import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { Wrapper } from "../../App.style.js";
 import { Outlet } from "react-router-dom";
 import { getTask } from "../../components/Api/GetTask/GetTask.js";
+import { useUser } from "../../components/Hooks/useUser.js";
 const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
 
-function MainPage({ user }) {
+function MainPage() {
+    const { user } = useUser();
     const [isLoading, setIsLoading] = useState(true);
-    /*     useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-    }, []); */
-
     const [cards, setCards] = useState([]);
 
     useEffect(() => {

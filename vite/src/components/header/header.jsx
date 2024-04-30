@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
-import * as S from "./header.style";
+import { useState } from "react";
+import * as S from "./Header.style";
 import { Container } from "../GlobalStyle/Global.style";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../AppRoutes/AppRoutes";
+import useTheme from "../Hooks/useTheme";
 
 function MainHeader({ addCard }) {
+    /* --------------MENU------------------- */
     const [isOpen, setIsOpen] = useState(false);
     const isOpenMenu = () => {
         setIsOpen((prevState) => !prevState);
     };
+    /* --------------MENU------------------- */
+    /*  -------------THEME----------------- */
 
-    /*   useEffect(() => {
-        GetTask().then((toDos) => console.log(toDos)), [];
-    }); */
+    const { theme, setTheme } = useTheme();
+    const handleThemeClick = () => {
+        setTheme((prevState) => !prevState);
+    };
+    /* -------------THEME----------------- */
 
     return (
         <S.StyleHeader>
@@ -24,7 +30,7 @@ function MainHeader({ addCard }) {
                             target="_self"
                         >
                             <img
-                                src="/public/logo.png"
+                                src={"/public/" + theme + ".png"}
                                 alt="logo"
                             />
                         </Link>
@@ -36,7 +42,9 @@ function MainHeader({ addCard }) {
                             id="btnMainNew"
                             onClick={addCard}
                         >
-                            <S.HeaderBtnNewTask_a>Создать новую задачу</S.HeaderBtnNewTask_a>
+                            <Link to={AppRoutes.PAGE_ADD_TASK}>
+                                <S.HeaderBtnNewText>Создать новую задачу</S.HeaderBtnNewText>
+                            </Link>
                         </S.HeaderBtnNewTask>
 
                         <S.HeaderUser
@@ -53,9 +61,9 @@ function MainHeader({ addCard }) {
                                 <S.PopUserSet_theme>
                                     <S.PopUserSet_theme_p>Темная тема</S.PopUserSet_theme_p>
                                     <S.Checkbox
-                                        onClick={isOpenMenu}
                                         type="checkbox"
                                         name="checkbox"
+                                        onClick={handleThemeClick}
                                     />
                                 </S.PopUserSet_theme>
                                 <S.HeaderBtnMenu $HoverNumber={"hover03"}>

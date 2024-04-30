@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes";
 import * as R from "./RegistrationPage.style";
 import { UserRegistration } from "../../components/Api/Registration/Registration";
 import { useState } from "react";
+import { useUser } from "../../components/Hooks/useUser";
 
 function RegistrationPage() {
+    const { login } = useUser();
+    const navigate = useNavigate();
+
     const [regData, setRegData] = useState({
         name: "",
         login: "",
@@ -22,8 +26,10 @@ function RegistrationPage() {
 
     const sendFormReg = async (e) => {
         e.preventDefault();
-        /* console.log("data", regData); */
-        await UserRegistration(regData);
+        await UserRegistration(regData).then((data) => {
+            login(data.user);
+            navigate(AppRoutes.PAGE_MAIN);
+        });
     };
 
     return (

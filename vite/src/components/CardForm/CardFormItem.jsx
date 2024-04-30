@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import * as C from "./CardForm.style";
 
 function CardForm({ statusTask, taskType, date, id }) {
+    /* console.log("status", statusTask, "taskType", taskType, "date", date, "id", id); */
     return (
         <C.Card>
             <C.CardsItem>
@@ -55,7 +56,9 @@ function CardForm({ statusTask, taskType, date, id }) {
                                     </clipPath>
                                 </defs>
                             </C.CardDateSvg>
+                            {/* _____todo______ */}
                             <C.CardDateText>{date}</C.CardDateText>
+                            {/* _____todo______ */}
                         </C.CardDate>
                     </C.CardContent>
                 </C.CardsCard>
