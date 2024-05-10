@@ -4,18 +4,44 @@ import { useParams } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import * as B from "./PopBrowse.style";
 import { useState } from "react";
+import { useUser } from "../../Hooks/useUser";
+import { DeleteTask } from "../../Api/DeleteTask/DeleteTask";
+import { useNavigate } from "react-router-dom";
+import { useTaskContext } from "../../../contexts/useUser";
 
 function PopBrowse() {
+    const { id } = useParams();
+    const { user } = useUser();
+    const navigate = useNavigate();
     const [selectedDate, setSelectedDate] = useState(null);
 
-    const { id } = useParams();
+    /* -----------------------------------------------CARD----------------------------- */
+    const { cards } = useTaskContext();
+    const currentCard = cards.find((element) => id === element._id);
+    /* -----------------------------------------------CARD----------------------------- */
+
+    const DeleteTasks = () => {
+        console.log("1");
+        DeleteTask({ taskData, id, token: user.token })
+            .then((response) => {
+                setCards(response.tasks);
+                console.log(response);
+                navigate(AppRoutes.PAGE_MAIN);
+            })
+            .catch((error) => {
+                console.log(error);
+                alert(error);
+                navigate(AppRoutes.PAGE_NOT_FOUND);
+            });
+    };
+
     return (
         <B.PopBrowse id="popBrowse">
             <B.PopBrowse__container>
                 <B.PopBrowse__block>
                     <B.PopBrowse__content>
                         <B.PopBrowse__topBlock>
-                            <B.PopBrowse__ttl>Название задачи:{id}</B.PopBrowse__ttl>
+                            <B.PopBrowse__ttl>Название задачи:{currentCard.title}</B.PopBrowse__ttl>
                             <B.PopBrowse__color $topicColor={"_orange"}>
                                 <p>Web Design</p>
                             </B.PopBrowse__color>
@@ -75,7 +101,10 @@ function PopBrowse() {
                                 <B.PopBrowse__edit $HoverNumber={"hover03"}>
                                     <a>Редактировать задачу</a>
                                 </B.PopBrowse__edit>
-                                <B.PopBrowse__delete $HoverNumber={"hover03"}>
+                                <B.PopBrowse__delete
+                                    $HoverNumber={"hover03"}
+                                    onClick={DeleteTasks}
+                                >
                                     <a>Удалить задачу</a>
                                 </B.PopBrowse__delete>
                             </B.PopBrowse__btnGroup>
@@ -86,20 +115,20 @@ function PopBrowse() {
                         <B.PopBrowse__btnHide>
                             <B.PopBrowse__btnGroup>
                                 <B.PopBrowse__saveEdit $HoverNumber={"hover01"}>
-                                    <a href="#">Сохранить</a>
+                                    <a>Сохранить</a>
                                 </B.PopBrowse__saveEdit>
                                 <B.PopBrowse__edit $HoverNumber={"hover03"}>
-                                    <a href="#">Отменить</a>
+                                    <a>Отменить</a>
                                 </B.PopBrowse__edit>
                                 <B.PopBrowse__edit
                                     id="btnDelete"
                                     $HoverNumber={"hover03"}
+                                    /*    onClick={DeleteTasks} */
                                 >
-                                    <a href="#">Удалить задачу</a>
+                                    <a>Удалить задачу</a>
                                 </B.PopBrowse__edit>
                             </B.PopBrowse__btnGroup>
-
-                            <B.PopBrowse__saveEdit>Закрыть</B.PopBrowse__saveEdit>
+                            <B.PopBrowse__saveEdit $HoverNumber={"hover03"}>Закрыть</B.PopBrowse__saveEdit>
                         </B.PopBrowse__btnHide>
                     </B.PopBrowse__content>
                 </B.PopBrowse__block>

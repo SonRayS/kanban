@@ -9,43 +9,35 @@ import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { Wrapper } from "../../App.style.js";
 import { Outlet } from "react-router-dom";
 import { getTask } from "../../components/Api/GetTask/GetTask.js";
-import { useUser } from "../../components/Hooks/useUser.js";
+import { useUserContext, useTaskContext } from "../../contexts/useUser";
 const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
 
 function MainPage() {
-    const { user } = useUser();
+    const { user } = useUserContext();
+    const { setCards } = useTaskContext();
     const [isLoading, setIsLoading] = useState(true);
-    const [cards, setCards] = useState([]);
 
     useEffect(() => {
+        /* console.log(user); */
         getTask({ token: user.token })
             .then((response) => {
-                console.log(response);
+                /* console.log(response.tasks); */
                 setCards(response.tasks);
                 setIsLoading(false);
             })
             .catch(() => {
                 alert(error);
             });
-    }, [user]);
+    }, [user, setCards]);
 
-    function addCard() {
-        const newCard = {
-            id: cards.length + 1,
-            theme: "Copywriting",
-            title: "Новая задача",
-            date: "30.10.23",
-            status: "Без статуса",
-        };
-        setCards([...cards, newCard]);
-    }
+    const { cards } = useTaskContext();
 
     return (
         <>
             <GlobalStyle />
             <Wrapper>
                 {/*  ------Header------- */}
-                <MainHeader addCard={addCard} />
+                <MainHeader />
                 {/*  ------Header------- */}
                 <Outlet />
                 {/*  ------Column------- */}

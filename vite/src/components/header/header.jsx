@@ -4,8 +4,10 @@ import { Container } from "../GlobalStyle/Global.style";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../AppRoutes/AppRoutes";
 import useTheme from "../Hooks/useTheme";
+import { useUser } from "../Hooks/useUser";
 
 function MainHeader({ addCard }) {
+    const { user } = useUser();
     /* --------------MENU------------------- */
     const [isOpen, setIsOpen] = useState(false);
     const isOpenMenu = () => {
@@ -52,12 +54,12 @@ function MainHeader({ addCard }) {
                             href="#user-set-target"
                             onClick={isOpenMenu}
                         >
-                            Ivan Ivanov
+                            {user.name}
                         </S.HeaderUser>
                         {isOpen && (
                             <S.PopUserSet id="user-set-target">
-                                <S.PopUserSet_name>Ivan Ivanov</S.PopUserSet_name>
-                                <S.PopUserSet_mail>ivan.ivanov@gmail.com</S.PopUserSet_mail>
+                                <S.PopUserSet_name>{user.name}</S.PopUserSet_name>
+                                <S.PopUserSet_mail>{user.login}</S.PopUserSet_mail>
                                 <S.PopUserSet_theme>
                                     <S.PopUserSet_theme_p>Темная тема</S.PopUserSet_theme_p>
                                     <S.Checkbox

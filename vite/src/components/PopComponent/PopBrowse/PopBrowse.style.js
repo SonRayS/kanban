@@ -139,7 +139,7 @@ export const PopBrowse__hide = styled(PopBrowse__statusTheme)`
     display: none;
 `;
 
-export const PopBrowse__form = styled.form`
+export const PopBrowse__form = styled.div`
     max-width: 370px;
     width: 100%;
     display: block;
@@ -266,9 +266,6 @@ export const PopBrowse__edit = styled.button`
     background: transparent;
     color: #565eef;
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
-    a {
-        color: ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
-    }
 `;
 
 export const PopBrowse__delete = styled.button`
@@ -278,9 +275,6 @@ export const PopBrowse__delete = styled.button`
     background: transparent;
     color: #565eef;
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
-    a {
-        color: ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
-    }
 `;
 
 export const PopBrowse__close = styled.button`
@@ -302,8 +296,6 @@ export const PopBrowse__saveEdit = styled.button`
     border: none;
     outline: none;
     color: #ffffff;
-    a {
-        color: #ffffff;
-    }
+
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;

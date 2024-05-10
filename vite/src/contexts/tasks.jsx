@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const TasksContext = createContext({});
+export const TasksContext = createContext(null);
 
 export const TaskProvider = ({ children }) => {
     const [cards, setCards] = useState([]);

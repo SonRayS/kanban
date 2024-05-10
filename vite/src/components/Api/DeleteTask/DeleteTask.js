@@ -1,9 +1,9 @@
-/* import { UserTask } from "../GetTask/GetTask";
+import { UserTask } from "../GetTask/GetTask";
 
-export async function AddTask(taskData, id) {
+export async function DeleteTask({ taskData, id, token }) {
     const response = await fetch(UserTask + "/" + id, {
         headers: {
-            Authorization: `Bearer ${taskData.token}`,
+            Authorization: `Bearer ${token}`,
         },
         method: "DELETE",
         body: JSON.stringify({
@@ -21,4 +21,4 @@ export async function AddTask(taskData, id) {
 
     const data = await response.json();
     return data;
-} */
+}

@@ -1,0 +1,11 @@
+import { useContext } from "react";
+import { UserContext } from "./userLocalStorage";
+import { TasksContext } from "./tasks";
+
+export function useUserContext() {
+    return useContext(UserContext);
+}
+
+export function useTaskContext() {
+    return useContext(TasksContext);
+}
