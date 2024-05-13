@@ -16,10 +16,8 @@ function MainHeader({ addCard }) {
     /* --------------MENU------------------- */
     /*  -------------THEME----------------- */
 
-    const { theme, setTheme } = useTheme();
-    const handleThemeClick = () => {
-        setTheme((prevState) => !prevState);
-    };
+    const { theme, toggleTheme } = useTheme();
+
     /* -------------THEME----------------- */
 
     return (
@@ -66,11 +64,11 @@ function MainHeader({ addCard }) {
                                     <S.Checkbox
                                         type="checkbox"
                                         name="checkbox"
-                                        onClick={handleThemeClick}
+                                        onClick={toggleTheme}
                                     />
                                 </S.PopUserSet_theme>
                                 <S.HeaderBtnMenu
-                                    $Theme={useTheme().theme}
+                                    $Theme={theme}
                                     $HoverNumber={"hover03"}
                                 >
                                     <Link to={AppRoutes.PAGE_EXIT}>Выйти</Link>
