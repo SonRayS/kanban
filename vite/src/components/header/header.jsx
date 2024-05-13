@@ -23,7 +23,7 @@ function MainHeader({ addCard }) {
     /* -------------THEME----------------- */
 
     return (
-        <S.StyleHeader>
+        <S.StyleHeader $Theme={theme}>
             <Container>
                 <S.HeaderBlock>
                     <S.HeaderLogo>
@@ -52,26 +52,30 @@ function MainHeader({ addCard }) {
                         <S.HeaderUser
                             $HoverNumber={"hover02"}
                             href="#user-set-target"
+                            $Theme={theme}
                             onClick={isOpenMenu}
                         >
                             {user.name}
                         </S.HeaderUser>
                         {isOpen && (
-                            <S.PopUserSet id="user-set-target">
-                                <S.PopUserSet_name>{user.name}</S.PopUserSet_name>
+                            <S.HeaderPopUserSet $Theme={theme}>
+                                <S.PopUserSet_name $Theme={theme}>{user.name}</S.PopUserSet_name>
                                 <S.PopUserSet_mail>{user.login}</S.PopUserSet_mail>
                                 <S.PopUserSet_theme>
-                                    <S.PopUserSet_theme_p>Темная тема</S.PopUserSet_theme_p>
+                                    <S.PopUserSet_theme_p $Theme={theme}>Темная тема</S.PopUserSet_theme_p>
                                     <S.Checkbox
                                         type="checkbox"
                                         name="checkbox"
                                         onClick={handleThemeClick}
                                     />
                                 </S.PopUserSet_theme>
-                                <S.HeaderBtnMenu $HoverNumber={"hover03"}>
+                                <S.HeaderBtnMenu
+                                    $Theme={useTheme().theme}
+                                    $HoverNumber={"hover03"}
+                                >
                                     <Link to={AppRoutes.PAGE_EXIT}>Выйти</Link>
                                 </S.HeaderBtnMenu>
-                            </S.PopUserSet>
+                            </S.HeaderPopUserSet>
                         )}
                     </S.HeaderNav>
                 </S.HeaderBlock>

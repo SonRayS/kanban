@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { HoverEffect } from "../../components/Header/header.style";
+import { HoverEffect } from "../../components/Header/Header.style";
 
 export const Wrapper = styled.div`
     max-width: 100%;

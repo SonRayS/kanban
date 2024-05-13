@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SwitchThemeBG, SwitchThemeText } from "../GlobalStyle/Global.style";
 
 export const topicStyles = {
     _purple: {
@@ -74,17 +75,17 @@ export const CardsItem = styled.div`
 export const CardsCard = styled.div`
     width: 220px;
     height: 130px;
-    background-color: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: stretch;
     padding: 15px 13px 19px;
+    border: 0.7px solid rgba(148, 166, 190, 0.4);
+
     @media screen and (max-width: 1200px) {
         width: 220px;
         height: 130px;
-        background-color: #ffffff;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -92,6 +93,7 @@ export const CardsCard = styled.div`
         justify-content: stretch;
         padding: 15px 13px 19px;
     }
+    ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")};
 `;
 
 export const CardGroup = styled.div`
@@ -123,8 +125,8 @@ export const CardTitle = styled.h3`
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
-    color: #000000;
     margin-bottom: 10px;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")};
 `;
 
 export const CardContent = styled.div`

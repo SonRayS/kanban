@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { SwitchThemeBackGroundTask } from "../GlobalStyle/Global.style";
 
 export const Main = styled.main`
     width: 100%;
-    background-color: #565eef;
+    ${({ $Theme }) => SwitchThemeBackGroundTask[$Theme] || console.log("none Theme")};
 `;
 export const MainBlock = styled.div`
     width: 100%;

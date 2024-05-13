@@ -1,15 +1,15 @@
 import "../../App.css";
-import React from "react";
 import MainHeader from "../../components/Header/Header.jsx";
 import ColumnStatus from "../../components/ColumnStatus/ColumnStatus.jsx";
 import MainContent from "../../components/MainContent/MainContent.jsx";
 import LoadPage from "../../components/Loading/LoadingMassage/Loading.jsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, React } from "react";
 import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { Wrapper } from "../../App.style.js";
 import { Outlet } from "react-router-dom";
 import { getTask } from "../../components/Api/GetTask/GetTask.js";
 import { useUserContext, useTaskContext } from "../../contexts/useUser";
+
 const statusList = ["Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово"];
 
 function MainPage() {

@@ -1,12 +1,9 @@
-import { useState, useLayoutEffect } from "react";
+import { useContext } from "react";
+import { themeContext } from "../../contexts/themeContext";
 
 const useTheme = () => {
-    const [theme, setTheme] = useState("true");
-
-    useLayoutEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-    }, [theme]);
-    return { theme, setTheme };
+    const themeValue = useContext(themeContext);
+    return themeValue;
 };
 
 export default useTheme;

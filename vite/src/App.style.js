@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SwitchThemeBackGroundTask } from "./components/GlobalStyle/Global.style";
 
 export const Wrapper = styled.div`
      {
@@ -6,6 +7,5 @@ export const Wrapper = styled.div`
         width: 100vw;
         min-height: 100vh;
         overflow: hidden;
-        background-color: #f1f1f1;
     }
 `;

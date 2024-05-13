@@ -1,17 +1,10 @@
 import styled from "styled-components";
-
-export const MainSubject = {
-    white: `
-    background-color: #ffffff;
-    `,
-    dark: `
-    background-color: #20202C;
-    `,
-};
+import { SwitchThemeBG, SwitchThemeText, SwitchThemeLink, SwitchThemeBtn } from "../GlobalStyle/Global.style";
 
 export const StyleHeader = styled.header`
     width: 100%;
     margin: 0 auto;
+    ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")};
 `;
 
 export const HeaderBlock = styled.div`
@@ -52,8 +45,7 @@ export const HoverEffect = {
             color: #33399b;
         }
         &:hover::after {
-            border-left-color: #33399b;
-            border-bottom-color: #33399b;
+            border-color: #33399b;
         }
     `,
     hover03: `
@@ -109,7 +101,7 @@ export const HeaderUser = styled.a`
         margin: -6px 0 0 5px;
         padding: 0;
     }
-
+    ${({ $Theme }) => SwitchThemeLink[$Theme] || console.log("none Theme")};
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;
 
@@ -122,21 +114,20 @@ export const HeaderPopUserSet = styled.div`
     height: 205px;
     border-radius: 10px;
     border: 0.7px solid rgba(148, 166, 190, 0.4);
-    background: #fff;
     box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
     padding: 34px;
     text-align: center;
     z-index: 2;
-`;
-
-export const PopUserSet = styled(HeaderPopUserSet)`
     &:target {
         display: block;
     }
+
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
+    ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")}
 `;
 
 export const PopUserSet_name = styled.p`
-    color: #000;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
     font-size: 14px;
     font-weight: 500;
     line-height: 21px;
@@ -185,7 +176,7 @@ export const PopUserSet_theme = styled.div`
 `;
 
 export const PopUserSet_theme_p = styled.p`
-    color: #000;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.14px;
@@ -197,16 +188,8 @@ export const HeaderBtnMenu = styled.button`
     width: 64px;
     height: 30px;
     border-radius: 4px;
-    background-color: #565eef;
-    color: #ffffff;
-    border: none;
     font-size: 14px;
-    line-height: 1;
     font-weight: 500;
-    margin-right: 20px;
-    a {
-        color: #ffffff;
-    }
-
+    ${({ $Theme }) => SwitchThemeBtn[$Theme] || console.log("none ThemeBtn")}
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;

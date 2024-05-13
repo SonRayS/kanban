@@ -32,15 +32,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     color: #000000;
     }
-
+    
     html[data-theme="false"] {
-        background-color: rgb(46, 46, 46);
+        background-color: #202229;
         color: white;
         transition: background-color 300ms linear;
     }
     
     html[data-theme="true"] {
-        background-color: rgb(255, 255, 255);
+        background-color: #FFFFFF;
         color: black;
         transition: background-color 300ms linear;
     }
@@ -53,3 +53,66 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 0 30px;
 `;
+
+export const SwitchThemeLink = {
+    true: `
+    color: #565eef;
+    transition: background-color 300ms linear;
+    `,
+    false: `
+    color: #FFFFFF;
+    transition: background-color 300ms linear;
+    `,
+};
+
+export const SwitchThemeText = {
+    true: `
+    color: #000000;
+    transition: background-color 300ms linear;
+    `,
+    false: `
+    color: #FFFFFF;
+    transition: background-color 300ms linear;
+    `,
+};
+
+export const SwitchThemeBG = {
+    true: `
+    background-color: #FFFFFF;
+    transition: background-color 300ms linear;
+    `,
+    false: `
+    background-color: #20202C;
+    transition: background-color 300ms linear;
+    `,
+};
+
+export const SwitchThemeBtn = {
+    true: `
+    border-color: rgb(26, 56, 101);
+    background-color: transparent;
+    transition: background-color 300ms linear;
+        a {
+            color: rgb(26, 56, 101);
+        }
+    `,
+    false: `
+    border-color: #FFFFFF;
+    background-color: transparent;
+    transition: background-color 300ms linear;
+        a {
+            color: #FFFFFF;
+        }
+    `,
+};
+
+export const SwitchThemeBackGroundTask = {
+    true: `
+    background-color: #565eef;
+    transition: background-color 300ms linear;
+    `,
+    false: `
+    background-color: #202229;
+    transition: background-color 300ms linear;
+    `,
+};

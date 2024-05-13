@@ -284,7 +284,7 @@ body {
 .pop-user-set__theme input:checked[type="checkbox"]::before {
     left: 12px;
 } */
-.pop-user-set button {
+/* .pop-user-set button {
     width: 72px;
     height: 30px;
     background: transparent;
@@ -294,7 +294,7 @@ body {
 }
 .pop-user-set button a {
     color: #565eef;
-}
+} */
 
 /* .pop-new-card {
     display: none;
@@ -699,11 +699,11 @@ body {
     margin-right: 7px;
     margin-bottom: 7px;
 } */
-.status__theme p {
+/* .status__theme p {
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
-}
+} */
 
 /* ._btn-bor {
     border-radius: 4px;
@@ -890,7 +890,7 @@ body {
     margin: -6px 0 0 5px;
     padding: 0;
 } */
-.header__pop-user-set {
+/* .header__pop-user-set {
     display: block;
     position: absolute;
     top: 61px;
@@ -904,7 +904,7 @@ body {
     padding: 34px;
     text-align: center;
     z-index: 2;
-}
+} */
 
 /* .main {
     width: 100%;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { HoverEffect } from "../../Header/header.style";
+import { HoverEffect } from "../../Header/Header.style";
+import { SwitchThemeBtn, SwitchThemeBG, SwitchThemeText } from "../../GlobalStyle/Global.style";
 
 export const PopExit = styled.div`
     width: 100%;
@@ -39,6 +40,7 @@ export const PopExit__block = styled.div`
     @media only screen and (max-width: 375px) {
         padding: 50px 20px;
     }
+    ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none ThemeBtn")}
 `;
 export const PopExit__ttl = styled.div``;
 
@@ -49,6 +51,7 @@ export const PopExit__ttl_h2 = styled.h2`
     line-height: 30px;
     letter-spacing: -0.4px;
     margin-bottom: 20px;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none ThemeBtn")}
 `;
 
 export const PopExit__form = styled.div``;
@@ -114,7 +117,7 @@ export const PopExit__exit_no = styled.button`
     font-weight: 500;
     letter-spacing: -0.14px;
     color: #ffffff;
-
+    ${({ $Theme }) => SwitchThemeBtn[$Theme] || console.log("none ThemeBtn")}
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")}
 
     & a {
