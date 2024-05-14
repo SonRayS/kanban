@@ -4,10 +4,14 @@ import * as A from "./AuthorizationPage.style";
 import { useState } from "react";
 import { AuthorUser } from "../../components/Api/AuthorUser/AuthorUser";
 import { useUser } from "../../components/Hooks/useUser";
+import useTheme from "../../components/Hooks/useTheme";
+import { ThemeIco } from "../RegistrationPage/RegistrationPage.style";
 
 function AuthorizationPage() {
     const { login } = useUser();
     const navigate = useNavigate();
+
+    const { theme, toggleTheme } = useTheme();
 
     const [loginData, setLoginData] = useState({
         login: "",
@@ -34,18 +38,23 @@ function AuthorizationPage() {
     };
 
     return (
-        <A.Wrapper>
+        <A.Wrapper $Theme={theme}>
             <A.ContainerSignIn>
-                <A.Modal>
+                <A.Modal $Theme={theme}>
                     <A.ModalBlock>
                         <A.ModalBlock_ttl>
-                            <A.ModalBlock_ttl_p>Вход</A.ModalBlock_ttl_p>
+                            <A.ModalBlock_ttl_p $Theme={theme}>Вход</A.ModalBlock_ttl_p>
+                            <ThemeIco
+                                onClick={toggleTheme}
+                                $Theme={theme}
+                            ></ThemeIco>
                         </A.ModalBlock_ttl>
                         <A.ModalFromLogin
                             id="formLogIn"
                             action="#"
                         >
                             <A.ModalInput
+                                $Theme={theme}
                                 value={loginData.login}
                                 onChange={handleInputChange}
                                 type="text"
@@ -54,6 +63,7 @@ function AuthorizationPage() {
                                 placeholder="Эл. почта"
                             />
                             <A.ModalInput
+                                $Theme={theme}
                                 value={loginData.password}
                                 onChange={handleInputChange}
                                 type="password"

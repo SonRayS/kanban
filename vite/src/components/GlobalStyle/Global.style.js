@@ -116,3 +116,14 @@ export const SwitchThemeBackGroundTask = {
     transition: background-color 300ms linear;
     `,
 };
+
+export const SwitchThemeIco = {
+    true: `
+    background-image: url("../../../public/moon.png");
+    transition: background-color 300ms linear;
+    `,
+    false: `
+    background-image: url("../../../public/sun.png");
+    transition: background-color 300ms linear;
+    `,
+};

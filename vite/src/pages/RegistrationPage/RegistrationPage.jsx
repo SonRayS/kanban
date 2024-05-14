@@ -4,10 +4,13 @@ import * as R from "./RegistrationPage.style";
 import { UserRegistration } from "../../components/Api/Registration/Registration";
 import { useState } from "react";
 import { useUser } from "../../components/Hooks/useUser";
+import useTheme from "../../components/Hooks/useTheme";
 
 function RegistrationPage() {
     const { login } = useUser();
     const navigate = useNavigate();
+
+    const { theme, toggleTheme } = useTheme();
 
     const [regData, setRegData] = useState({
         name: "",
@@ -33,59 +36,69 @@ function RegistrationPage() {
     };
 
     return (
-        <R.Wrapper>
-            <R.ContainerSignIn>
-                <R.Modal>
-                    <R.ModalBlock>
+        <>
+            <R.Wrapper $Theme={theme}>
+                <R.ContainerSignIn>
+                    <R.Modal $Theme={theme}>
                         <R.ModalTtl>
-                            <R.ModalTtlH2>Регистрация</R.ModalTtlH2>
+                            <R.ModalTtlH2 $Theme={theme}>Регистрация</R.ModalTtlH2>
+                            <R.ThemeIco
+                                onClick={toggleTheme}
+                                $Theme={theme}
+                            ></R.ThemeIco>
                         </R.ModalTtl>
-                        <R.ModalFromLogin
-                            id="formLogUp"
-                            action="#"
-                        >
-                            <R.ModalInput
-                                value={regData.name}
-                                onChange={handleInputChange}
-                                type="text"
-                                name="name"
-                                id="first-name"
-                                placeholder="Имя"
-                            />
-                            <R.ModalInput
-                                value={regData.login}
-                                onChange={handleInputChange}
-                                type="text"
-                                name="login"
-                                id="loginReg"
-                                placeholder="Эл. почта"
-                            />
-                            <R.ModalInput
-                                value={regData.password}
-                                onChange={handleInputChange}
-                                type="password"
-                                name="password"
-                                id="passwordFirst"
-                                placeholder="Пароль"
-                            />
-                            <R.ModalButton
-                                $HoverNumber={"hover01"}
-                                id="SignUpEnter"
-                                onClick={sendFormReg}
+                        <R.ModalBlock>
+                            <R.ModalFromLogin
+                                id="formLogUp"
+                                action="#"
                             >
-                                <R.ModalBtnText>Зарегистрироваться</R.ModalBtnText>
-                            </R.ModalButton>
-                            <R.ModalFromGroup>
-                                <R.ModalText>
-                                    Уже есть аккаунт?
-                                    <Link to={AppRoutes.PAGE_AUTHORIZATION}> Войдите здесь</Link>
-                                </R.ModalText>
-                            </R.ModalFromGroup>
-                        </R.ModalFromLogin>
-                    </R.ModalBlock>
-                </R.Modal>
-            </R.ContainerSignIn>
-        </R.Wrapper>
+                                <R.ModalInput
+                                    $Theme={theme}
+                                    value={regData.name}
+                                    onChange={handleInputChange}
+                                    type="text"
+                                    name="name"
+                                    id="first-name"
+                                    placeholder="Имя"
+                                />
+                                <R.ModalInput
+                                    $Theme={theme}
+                                    value={regData.login}
+                                    onChange={handleInputChange}
+                                    type="text"
+                                    name="login"
+                                    id="loginReg"
+                                    placeholder="Эл. почта"
+                                />
+                                <R.ModalInput
+                                    $Theme={theme}
+                                    value={regData.password}
+                                    onChange={handleInputChange}
+                                    type="password"
+                                    name="password"
+                                    id="passwordFirst"
+                                    placeholder="Пароль"
+                                />
+                                <R.ModalButton
+                                    $HoverNumber={"hover01"}
+                                    id="SignUpEnter"
+                                    onClick={sendFormReg}
+                                >
+                                    <R.ModalBtnText>Зарегистрироваться</R.ModalBtnText>
+                                </R.ModalButton>
+                                <R.ModalFromGroup>
+                                    <R.ModalText>
+                                        Уже есть аккаунт?
+                                        <br />
+                                        <Link to={AppRoutes.PAGE_AUTHORIZATION}>Войдите здесь</Link>
+                                    </R.ModalText>
+                                </R.ModalFromGroup>
+                            </R.ModalFromLogin>
+                        </R.ModalBlock>
+                    </R.Modal>
+                </R.ContainerSignIn>
+            </R.Wrapper>
+        </>
     );
 }
 

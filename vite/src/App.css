@@ -768,20 +768,20 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
  */
-::-webkit-input-placeholder {
-    /* WebKit browsers */
+/* //::-webkit-input-placeholder {
+   
     color: #b8bbec;
 }
 :-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
+   
     color: #b8bbec;
 }
 ::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
+   
     color: #b8bbec;
 }
 :-ms-input-placeholder {
-    /* Internet Explorer 10+ */
+
     color: #b8bbec;
 }
 
@@ -799,7 +799,7 @@ body {
 
 :focus:-ms-input-placeholder {
     color: transparent;
-}
+}// */
 
 /* .modal__form-login button {
     margin: 12px;
