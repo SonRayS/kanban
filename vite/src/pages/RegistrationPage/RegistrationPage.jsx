@@ -87,7 +87,7 @@ function RegistrationPage() {
                                     <R.ModalBtnText>Зарегистрироваться</R.ModalBtnText>
                                 </R.ModalButton>
                                 <R.ModalFromGroup>
-                                    <R.ModalText>
+                                    <R.ModalText $Theme={theme}>
                                         Уже есть аккаунт?
                                         <br />
                                         <Link to={AppRoutes.PAGE_AUTHORIZATION}>Войдите здесь</Link>

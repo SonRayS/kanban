@@ -4,7 +4,7 @@ import {
     SwitchThemeBackGroundTask,
     SwitchThemeText,
     SwitchThemeBG,
-    SwitchThemeIco,
+    SwitchThemeDescription,
 } from "../../components/GlobalStyle/Global.style";
 
 export const Wrapper = styled.div`
@@ -118,6 +118,7 @@ export const ModalText = styled.p`
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    ${({ $Theme }) => SwitchThemeDescription[$Theme] || console.log("none Theme")};
 `;
 
 export const ModalBtnText = styled.p`

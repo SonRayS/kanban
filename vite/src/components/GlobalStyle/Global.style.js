@@ -127,3 +127,14 @@ export const SwitchThemeIco = {
     transition: background-color 300ms linear;
     `,
 };
+
+export const SwitchThemeDescription = {
+    true: `
+    color: #565eef;
+    transition: background-color 300ms linear;
+    `,
+    false: `
+    color: #4e5566;
+    transition: background-color 300ms linear;
+    `,
+};

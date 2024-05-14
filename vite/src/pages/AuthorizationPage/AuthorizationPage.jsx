@@ -80,7 +80,7 @@ function AuthorizationPage() {
                                 <A.ModalBtnText>Войти</A.ModalBtnText>
                             </A.ModalButton>
                             <A.ModalFromGroup>
-                                <A.ModalText>
+                                <A.ModalText $Theme={theme}>
                                     Нужно зарегистрироваться?
                                     <br />
                                     <Link to={AppRoutes.PAGE_REGISTRATION}>Регистрируйтесь здесь</Link>
