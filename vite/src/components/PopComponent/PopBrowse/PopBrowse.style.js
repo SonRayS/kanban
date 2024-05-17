@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { topicStyles } from "../../CardForm/CardForm.style";
 import { HoverEffect } from "../../Header/Header.style";
+import { SwitchThemeBG, SwitchThemeText } from "../../GlobalStyle/Global.style";
 
 export const PopBrowse = styled.div`
     width: 100%;
@@ -160,6 +161,7 @@ export const PopBrowse__subLabelTtl = styled.label`
     font-weight: 600;
     line-height: 1;
     margin-bottom: 14px;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
 `;
 
 export const PopBrowse__area = styled.area`

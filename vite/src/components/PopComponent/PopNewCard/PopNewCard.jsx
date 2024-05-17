@@ -9,6 +9,8 @@ import { Container } from "../../GlobalStyle/Global.style";
 import { AppRoutes } from "../../AppRoutes/AppRoutes";
 import { Link } from "react-router-dom";
 import { AddTask } from "../../Api/AddTask/AddTask";
+import useTheme from "../../Hooks/useTheme";
+import { topicName } from "../../CardForm/CardForm.style";
 
 function PopNewCard() {
     const { user } = useUser();
@@ -16,6 +18,8 @@ function PopNewCard() {
     const navigate = useNavigate();
 
     const [selectedDate, setSelectedDate] = useState(null);
+
+    const { theme, toggleTheme } = useTheme();
 
     const [newTask, setNewTask] = useState({
         title: "",
@@ -57,9 +61,9 @@ function PopNewCard() {
         <Container>
             <N.PopNewCard id="popNewCard">
                 <N.PopNewCard__container>
-                    <N.PopNewCard__block>
+                    <N.PopNewCard__block $Theme={theme}>
                         <N.PopNewCard__content>
-                            <N.PopNewCard__tll>Создание задачи</N.PopNewCard__tll>
+                            <N.PopNewCard__tll $Theme={theme}>Создание задачи</N.PopNewCard__tll>
                             <Link to={AppRoutes.PAGE_MAIN}>
                                 <N.PopNewCard__close>&#10006;</N.PopNewCard__close>
                             </Link>
@@ -69,10 +73,14 @@ function PopNewCard() {
                                     action="#"
                                 >
                                     <N.PopNewCard__nweBlock>
-                                        <PopBrowse__subLabelTtl htmlFor="formTitle">
+                                        <PopBrowse__subLabelTtl
+                                            $Theme={theme}
+                                            htmlFor="formTitle"
+                                        >
                                             Название задачи
                                         </PopBrowse__subLabelTtl>
                                         <N.PopNewCard__input
+                                            $Theme={theme}
                                             value={newTask.title}
                                             onChange={handleInputChange}
                                             type="text"
@@ -83,10 +91,14 @@ function PopNewCard() {
                                         />
                                     </N.PopNewCard__nweBlock>
                                     <N.PopNewCard__nweBlock>
-                                        <PopBrowse__subLabelTtl htmlFor="textArea">
+                                        <PopBrowse__subLabelTtl
+                                            $Theme={theme}
+                                            htmlFor="textArea"
+                                        >
                                             Описание задачи
                                         </PopBrowse__subLabelTtl>
                                         <N.PopNewCard__area
+                                            $Theme={theme}
                                             value={newTask.description}
                                             onChange={handleInputChange}
                                             name="description"
@@ -104,6 +116,7 @@ function PopNewCard() {
                                 {/* ------------CALENDAR----------- */}
                             </N.PopNewCard__wrap>
                             <N.ProdCheckbox>
+                                <PopBrowse__subLabelTtl $Theme={theme}>Категория</PopBrowse__subLabelTtl>
                                 <N.RadioToolbar>
                                     <N.InputRadio1
                                         type="radio"
@@ -112,7 +125,12 @@ function PopNewCard() {
                                         value="Web Design"
                                         onChange={handleInputChange}
                                     />
-                                    <N.RadioToolbarLabel1 htmlFor="radio1">Web Design</N.RadioToolbarLabel1>
+                                    <N.RadioToolbarLabel1
+                                        htmlFor="radio1"
+                                        $topicColor={topicName["WebDesign"]}
+                                    >
+                                        WebDesign
+                                    </N.RadioToolbarLabel1>
 
                                     <N.InputRadio1
                                         type="radio"
@@ -121,7 +139,12 @@ function PopNewCard() {
                                         value="Research"
                                         onChange={handleInputChange}
                                     />
-                                    <N.RadioToolbarLabel2 htmlFor="radio2">Research</N.RadioToolbarLabel2>
+                                    <N.RadioToolbarLabel2
+                                        htmlFor="radio2"
+                                        $topicColor={topicName["Research"]}
+                                    >
+                                        Research
+                                    </N.RadioToolbarLabel2>
 
                                     <N.InputRadio1
                                         type="radio"
@@ -130,7 +153,12 @@ function PopNewCard() {
                                         value="Copywriting"
                                         onChange={handleInputChange}
                                     />
-                                    <N.RadioToolbarLabel3 htmlFor="radio3">Copywriting</N.RadioToolbarLabel3>
+                                    <N.RadioToolbarLabel3
+                                        htmlFor="radio3"
+                                        $topicColor={topicName["Copywriting"]}
+                                    >
+                                        Copywriting
+                                    </N.RadioToolbarLabel3>
                                 </N.RadioToolbar>
                             </N.ProdCheckbox>
                             <N.PopNewCard__create
