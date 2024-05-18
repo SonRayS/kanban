@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SwitchThemeText } from "../GlobalStyle/Global.style";
+import { SwitchThemeText, SwitchThemeBtn } from "../GlobalStyle/Global.style";
 
 export const CalendarText = styled.p`
     font-size: 14px;

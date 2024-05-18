@@ -3,7 +3,7 @@ import { AppRoutes } from "../../AppRoutes/AppRoutes";
 import { useParams } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import * as B from "./PopBrowse.style";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserContext } from "../../../contexts/useUser";
 import { DeleteTask } from "../../Api/DeleteTask/DeleteTask";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +23,11 @@ function PopBrowse() {
     /* -----------------------------------------------CARD----------------------------- */
     const { cards } = useTaskContext();
     const currentCard = cards.find((element) => id === element._id);
-    console.log(currentCard);
+
     /* -----------------------------------------------CARD----------------------------- */
+    useEffect(() => {
+        console.log(currentCard);
+    }, []);
 
     const DeleteTasks = () => {
         DeleteTask({ taskData: currentCard, id, token: user.token })
@@ -45,7 +48,7 @@ function PopBrowse() {
             {currentCard ? (
                 <B.PopBrowse id="popBrowse">
                     <B.PopBrowse__container>
-                        <B.PopBrowse__block>
+                        <B.PopBrowse__block $Theme={theme}>
                             <B.PopBrowse__content>
                                 <B.PopBrowse__topBlock>
                                     <B.PopBrowse__ttl $Theme={theme}>
@@ -77,11 +80,13 @@ function PopBrowse() {
                                             </B.PopBrowse__subLabelTtl>
 
                                             <B.PopBrowse__area
+                                                $Theme={theme}
                                                 name="text"
                                                 id="textArea01"
                                                 readOnly
-                                                placeholder="Введите описание задачи..."
-                                            ></B.PopBrowse__area>
+                                            >
+                                                {currentCard.description}
+                                            </B.PopBrowse__area>
                                         </B.PopBrowse__formBrowseBlock>
                                     </B.PopBrowse__form>
                                     {/* ------------CALENDAR----------- */}
@@ -92,21 +97,27 @@ function PopBrowse() {
                                     {/* ------------CALENDAR----------- */}
                                 </B.PopBrowse__wrap>
                                 <B.PopBrowse__themeDown>
-                                    <B.PopBrowse__categoriesSubTtl>Категория</B.PopBrowse__categoriesSubTtl>
+                                    <B.PopBrowse__categoriesSubTtl $Theme={theme}>
+                                        Категория
+                                    </B.PopBrowse__categoriesSubTtl>
                                     <B.PopBrowse__categoriesTheme $topicColor={topicName[currentCard.topic]}>
                                         <p>{currentCard.topic}</p>
                                     </B.PopBrowse__categoriesTheme>
                                 </B.PopBrowse__themeDown>
                                 <B.PopBrowse__btnBrowse>
                                     <B.PopBrowse__btnGroup>
-                                        <B.PopBrowse__edit $HoverNumber={"hover03"}>
-                                            <a>Редактировать задачу</a>
+                                        <B.PopBrowse__edit
+                                            $Theme={theme}
+                                            $HoverNumber={"hover03"}
+                                        >
+                                            Редактировать задачу
                                         </B.PopBrowse__edit>
                                         <B.PopBrowse__delete
                                             $HoverNumber={"hover03"}
+                                            $Theme={theme}
                                             onClick={DeleteTasks}
                                         >
-                                            <a>Удалить задачу</a>
+                                            Удалить задачу
                                         </B.PopBrowse__delete>
                                     </B.PopBrowse__btnGroup>
                                     <Link to={AppRoutes.PAGE_MAIN}>

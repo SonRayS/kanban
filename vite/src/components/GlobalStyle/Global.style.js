@@ -37,12 +37,18 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #202229;
         color: white;
         transition: background-color 300ms linear;
+        --rdp-background-color: #d41d1d;
     }
     
     html[data-theme="true"] {
         background-color: #FFFFFF;
         color: black;
         transition: background-color 300ms linear;
+        --rdp-background-color: #d41d1d;
+    }
+
+    .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+        background-color: #565eef;
     }
     
 `;
@@ -92,6 +98,7 @@ export const SwitchThemeBtn = {
     border-color: rgb(26, 56, 101);
     background-color: transparent;
     transition: background-color 300ms linear;
+    color: rgb(26, 56, 101);
         a {
             color: rgb(26, 56, 101);
         }
@@ -100,6 +107,7 @@ export const SwitchThemeBtn = {
     border-color: #FFFFFF;
     background-color: transparent;
     transition: background-color 300ms linear;
+    color: #FFFFFF;
         a {
             color: #FFFFFF;
         }

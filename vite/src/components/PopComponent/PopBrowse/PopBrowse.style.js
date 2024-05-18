@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { topicStyles } from "../../CardForm/CardForm.style";
 import { HoverEffect } from "../../Header/Header.style";
-import { SwitchThemeBG, SwitchThemeText } from "../../GlobalStyle/Global.style";
+import {
+    SwitchThemeBG,
+    SwitchThemeBackGroundTask,
+    SwitchThemeBtn,
+    SwitchThemeText,
+} from "../../GlobalStyle/Global.style";
 
 export const PopBrowse = styled.div`
     width: 100%;
@@ -55,6 +60,7 @@ export const PopBrowse__block = styled.div`
     @media screen and (max-width: 495px) {
         padding: 20px 16px 32px;
     }
+    ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")}
 `;
 
 export const PopBrowse__content = styled.div`
@@ -74,6 +80,7 @@ export const PopBrowse__ttl = styled.h3`
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
 `;
 
 export const PopBrowse__color = styled.div`
@@ -111,6 +118,7 @@ export const PopBrowse__subTtl = styled.p`
     font-weight: 600;
     line-height: 1;
     margin-bottom: 14px;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
 `;
 
 export const PopBrowse__statusThemes = styled.div`
@@ -164,7 +172,7 @@ export const PopBrowse__subLabelTtl = styled.label`
     ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
 `;
 
-export const PopBrowse__area = styled.area`
+export const PopBrowse__area = styled.div`
     max-width: 370px;
     width: 100%;
     outline: none;
@@ -177,24 +185,13 @@ export const PopBrowse__area = styled.area`
     letter-spacing: -0.14px;
     margin-top: 14px;
     height: 200px;
-    &::-moz-placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1px;
-        color: #94a6be;
-        letter-spacing: -0.14px;
-    }
-    &::placeholder {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1px;
-        color: #94a6be;
-        letter-spacing: -0.14px;
-    }
+
     @media screen and (max-width: 495px) {
         max-width: 100%;
         height: 37px;
     }
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
+    ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")}
 `;
 
 export const PopBrowse__themeDown = styled.div`
@@ -219,6 +216,7 @@ export const PopBrowse__categoriesSubTtl = styled(PopBrowse__categories_p)`
     font-weight: 600;
     line-height: 1;
     margin-bottom: 14px;
+    ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
 `;
 
 export const PopBrowse__categoriesTheme = styled.div`
@@ -267,6 +265,7 @@ export const PopBrowse__edit = styled.button`
     outline: none;
     background: transparent;
     color: #565eef;
+    ${({ $Theme }) => SwitchThemeBtn[$Theme] || console.log("none Theme")}
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;
 
@@ -276,6 +275,7 @@ export const PopBrowse__delete = styled.button`
     outline: none;
     background: transparent;
     color: #565eef;
+    ${({ $Theme }) => SwitchThemeBtn[$Theme] || console.log("none Theme")}
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;
 
@@ -283,8 +283,8 @@ export const PopBrowse__close = styled.button`
     border-radius: 4px;
     border: 0.7px solid var(--palette-navy-60, #565eef);
     outline: none;
-    background: transparent;
-    color: #565eef;
+    background-color: #565eef;
+    color: #ffffff;
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;
 
