@@ -5,18 +5,18 @@ import { topicStyles, TopicText } from "../../CardForm/CardForm.style";
 
 export const PopNewCard = styled.div`
     width: 100%;
-    min-width: 375px;
     height: 100%;
+    min-width: 375px;
     min-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 6;
-    &:target {
-        display: block;
-    }
+    z-index: 7;
     @media screen and (max-width: 660px) {
         top: 70px;
+    }
+    &:target {
+        display: block;
     }
 `;
 
@@ -29,10 +29,13 @@ export const PopNewCard__container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    background: rgba(0, 0, 0, 0.4);
     @media screen and (max-width: 660px) {
         padding: 0;
         justify-content: flex-start;
+    }
+    @media screen and (max-width: 495px) {
+        width: 100%;
     }
 `;
 
@@ -42,18 +45,16 @@ export const PopNewCard__block = styled.div`
     background-color: #ffffff;
     max-width: 630px;
     width: 100%;
-    padding: 40px 30px 48px;
+    padding: 40px 30px 38px;
     border-radius: 10px;
     border: 0.7px solid #d4dbe5;
     position: relative;
-
     @media screen and (max-width: 660px) {
         border-radius: 0;
     }
     @media screen and (max-width: 495px) {
         padding: 20px 16px 32px;
     }
-
     ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")}
 `;
 
@@ -85,7 +86,6 @@ export const PopNewCard__wrap = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-
     @media screen and (max-width: 660px) {
         display: block;
     }

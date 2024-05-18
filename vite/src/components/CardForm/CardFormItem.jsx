@@ -5,11 +5,12 @@ import useTheme from "../Hooks/useTheme";
 function CardForm({ statusTask, taskType, date, id }) {
     /* console.log("status", statusTask, "taskType", taskType, "date", date, "id", id); */
     let currentDate = new Date(date);
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <C.Card>
             <C.CardsItem>
-                <C.CardsCard $Theme={useTheme().theme}>
+                <C.CardsCard $Theme={theme}>
                     <C.CardGroup>
                         <C.CardTopic $topicColor={C.topicName[statusTask]}>
                             <C.TopicText>{statusTask}</C.TopicText>
@@ -24,7 +25,7 @@ function CardForm({ statusTask, taskType, date, id }) {
                     </C.CardGroup>
                     <C.CardContent>
                         <Link to={`card/${id}`}>
-                            <C.CardTitle $Theme={useTheme().theme}>{taskType}</C.CardTitle>
+                            <C.CardTitle $Theme={theme}>{taskType}</C.CardTitle>
                         </Link>
                         <C.CardDate>
                             <C.CardDateSvg
