@@ -5,6 +5,7 @@ import {
     SwitchThemeBG,
     SwitchThemeBackGroundTask,
     SwitchThemeBtn,
+    SwitchThemeRadioBtn,
     SwitchThemeText,
 } from "../../GlobalStyle/Global.style";
 
@@ -144,9 +145,7 @@ export const PopBrowse__statusTheme = styled.div`
     }
 `;
 
-export const PopBrowse__hide = styled(PopBrowse__statusTheme)`
-    display: none;
-`;
+export const PopBrowse__hide = styled(PopBrowse__statusTheme)``;
 
 export const PopBrowse__form = styled.div`
     max-width: 370px;
@@ -172,24 +171,40 @@ export const PopBrowse__subLabelTtl = styled.label`
     ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
 `;
 
-export const PopBrowse__area = styled.div`
-    max-width: 370px;
+export const PopBrowse__area = styled.textarea`
     width: 100%;
     outline: none;
     padding: 14px;
-    background: #eaeef6;
+    background: transparent;
     border: 0.7px solid rgba(148, 166, 190, 0.4);
     border-radius: 8px;
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+    max-width: 370px;
     margin-top: 14px;
+    resize: none;
     height: 200px;
 
+    &::-moz-placeholder {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1px;
+        color: #94a6be;
+        letter-spacing: -0.14px;
+    }
+    &::placeholder {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1px;
+        color: #94a6be;
+        letter-spacing: -0.14px;
+    }
     @media screen and (max-width: 495px) {
         max-width: 100%;
         height: 37px;
     }
+
     ${({ $Theme }) => SwitchThemeText[$Theme] || console.log("none Theme")}
     ${({ $Theme }) => SwitchThemeBG[$Theme] || console.log("none Theme")}
 `;
@@ -288,10 +303,6 @@ export const PopBrowse__close = styled.button`
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
 `;
 
-export const PopBrowse__btnHide = styled(PopBrowse__edit)`
-    display: none;
-`;
-
 export const PopBrowse__saveEdit = styled.button`
     border-radius: 4px;
     background: #565eef;
@@ -300,4 +311,44 @@ export const PopBrowse__saveEdit = styled.button`
     color: #ffffff;
 
     ${({ $HoverNumber }) => HoverEffect[$HoverNumber] || console.log("Не был передан hoverNumber")};
+`;
+
+export const StatusThemeLabel = styled.label`
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    border-radius: 24px;
+    margin-right: 7px;
+    cursor: pointer;
+    margin-right: 7px;
+
+    border: 0.7px solid #d4dbe5;
+
+    white-space: nowrap;
+
+    ${({ $Theme }) => SwitchThemeRadioBtn[$Theme] || console.log("none Theme")}
+`;
+
+export const RadioInput = styled.input`
+    display: none;
+
+    &:checked + label {
+        background-color: #565eef;
+        color: #ffffff;
+    }
+`;
+
+export const RadioToolBar = styled.div`
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 7px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+
+    letter-spacing: 0em;
+    text-align: center;
+    width: auto;
+    overflow: auto;
 `;

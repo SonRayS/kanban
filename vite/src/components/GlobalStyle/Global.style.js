@@ -93,6 +93,28 @@ export const SwitchThemeBG = {
     `,
 };
 
+export const SwitchThemeRadioBtn = {
+    true: `
+    color: #d4dbe5;
+    transition: background-color 300ms linear;
+    border-color: #FFFFFF;
+    &:hover {
+        transition: background-color 300ms linear;
+        background-color: #7ea150;
+    }
+
+    `,
+    false: `
+    color: #d4dbe5;
+    border-color: #FFFFFF;
+    transition: background-color 300ms linear;
+    &:hover {
+        transition: background-color 300ms linear;
+        background-color: #7ea150;
+    }
+    `,
+};
+
 export const SwitchThemeBtn = {
     true: `
     border-color: rgb(26, 56, 101);
