@@ -12,7 +12,7 @@ function CardForm({ statusTask, taskType, date, id }) {
             <C.CardsItem>
                 <C.CardsCard $Theme={theme}>
                     <C.CardGroup>
-                        <C.CardTopic $topicColor={C.topicName[statusTask]}>
+                        <C.CardTopic $topicColor={C.topicName[statusTask.replaceAll(" ", "")]}>
                             <C.TopicText>{statusTask}</C.TopicText>
                         </C.CardTopic>
                         <Link to={`card/${id}`}>

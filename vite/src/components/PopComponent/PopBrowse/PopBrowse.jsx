@@ -29,8 +29,8 @@ function PopBrowse() {
         console.log(currentCard);
     }, []);
 
-    const DeleteTasks = () => {
-        DeleteTask({ taskData: currentCard, id, token: user.token })
+    const DeleteTasks = async (e) => {
+        await DeleteTask({ taskData: currentCard, id, token: user.token })
             .then((response) => {
                 console.log(response);
                 navigate(AppRoutes.PAGE_MAIN);
@@ -45,86 +45,83 @@ function PopBrowse() {
 
     return (
         <>
-            {currentCard ? (
-                <B.PopBrowse id="popBrowse">
-                    <B.PopBrowse__container>
-                        <B.PopBrowse__block $Theme={theme}>
-                            <B.PopBrowse__content>
-                                <B.PopBrowse__topBlock>
-                                    <B.PopBrowse__ttl $Theme={theme}>
-                                        Название задачи:{currentCard.title}
-                                    </B.PopBrowse__ttl>
-                                    <B.PopBrowse__color $topicColor={topicName[currentCard.topic]}>
-                                        <p>{currentCard.topic}</p>
-                                    </B.PopBrowse__color>
-                                </B.PopBrowse__topBlock>
-                                <B.PopBrowse__status>
-                                    <B.PopBrowse__subTtl $Theme={theme}>Статус</B.PopBrowse__subTtl>
-                                    <B.PopBrowse__statusThemes>
-                                        <B.PopBrowse__statusTheme $topicColor={"_gray"}>
-                                            <p>{currentCard.status}</p>
-                                        </B.PopBrowse__statusTheme>
-                                    </B.PopBrowse__statusThemes>
-                                </B.PopBrowse__status>
-                                <B.PopBrowse__wrap>
-                                    <B.PopBrowse__form
-                                        id="formBrowseCard"
-                                        action="#"
-                                    >
-                                        <B.PopBrowse__formBrowseBlock>
-                                            <B.PopBrowse__subLabelTtl
-                                                htmlFor="textArea01"
-                                                $Theme={theme}
-                                            >
-                                                Описание задачи
-                                            </B.PopBrowse__subLabelTtl>
+            <B.PopBrowse id="popBrowse">
+                <B.PopBrowse__container>
+                    <B.PopBrowse__block $Theme={theme}>
+                        <B.PopBrowse__content>
+                            <B.PopBrowse__topBlock>
+                                <B.PopBrowse__ttl $Theme={theme}>Название задачи:{currentCard.title}</B.PopBrowse__ttl>
+                                <B.PopBrowse__color $topicColor={topicName[currentCard.topic]}>
+                                    <p>{currentCard.topic}</p>
+                                </B.PopBrowse__color>
+                            </B.PopBrowse__topBlock>
+                            <B.PopBrowse__status>
+                                <B.PopBrowse__subTtl $Theme={theme}>Статус</B.PopBrowse__subTtl>
+                                <B.PopBrowse__statusThemes>
+                                    <B.PopBrowse__statusTheme $topicColor={"_gray"}>
+                                        <p>{currentCard.status}</p>
+                                    </B.PopBrowse__statusTheme>
+                                </B.PopBrowse__statusThemes>
+                            </B.PopBrowse__status>
+                            <B.PopBrowse__wrap>
+                                <B.PopBrowse__form
+                                    id="formBrowseCard"
+                                    action="#"
+                                >
+                                    <B.PopBrowse__formBrowseBlock>
+                                        <B.PopBrowse__subLabelTtl
+                                            htmlFor="textArea01"
+                                            $Theme={theme}
+                                        >
+                                            Описание задачи
+                                        </B.PopBrowse__subLabelTtl>
 
-                                            <B.PopBrowse__area
-                                                $Theme={theme}
-                                                name="text"
-                                                id="textArea01"
-                                                readOnly
-                                            >
-                                                {currentCard.description}
-                                            </B.PopBrowse__area>
-                                        </B.PopBrowse__formBrowseBlock>
-                                    </B.PopBrowse__form>
-                                    {/* ------------CALENDAR----------- */}
-                                    <Calendar
-                                        selectedDate={selectedDate}
-                                        setSelectedDate={setSelectedDate}
-                                    />
-                                    {/* ------------CALENDAR----------- */}
-                                </B.PopBrowse__wrap>
-                                <B.PopBrowse__themeDown>
-                                    <B.PopBrowse__categoriesSubTtl $Theme={theme}>
-                                        Категория
-                                    </B.PopBrowse__categoriesSubTtl>
-                                    <B.PopBrowse__categoriesTheme $topicColor={topicName[currentCard.topic]}>
-                                        <p>{currentCard.topic}</p>
-                                    </B.PopBrowse__categoriesTheme>
-                                </B.PopBrowse__themeDown>
-                                <B.PopBrowse__btnBrowse>
-                                    <B.PopBrowse__btnGroup>
-                                        <B.PopBrowse__edit
+                                        <B.PopBrowse__area
                                             $Theme={theme}
-                                            $HoverNumber={"hover03"}
+                                            name="text"
+                                            id="textArea01"
+                                            readOnly
                                         >
-                                            Редактировать задачу
-                                        </B.PopBrowse__edit>
-                                        <B.PopBrowse__delete
-                                            $HoverNumber={"hover03"}
-                                            $Theme={theme}
-                                            onClick={DeleteTasks}
-                                        >
-                                            Удалить задачу
-                                        </B.PopBrowse__delete>
-                                    </B.PopBrowse__btnGroup>
-                                    <Link to={AppRoutes.PAGE_MAIN}>
-                                        <B.PopBrowse__close $HoverNumber={"hover01"}>Закрыть</B.PopBrowse__close>
-                                    </Link>
-                                </B.PopBrowse__btnBrowse>
-                                {/*<B.PopBrowse__btnHide>
+                                            {currentCard.description}
+                                        </B.PopBrowse__area>
+                                    </B.PopBrowse__formBrowseBlock>
+                                </B.PopBrowse__form>
+                                {/* ------------CALENDAR----------- */}
+                                <Calendar
+                                    selectedDate={selectedDate}
+                                    setSelectedDate={setSelectedDate}
+                                />
+                                {/* ------------CALENDAR----------- */}
+                            </B.PopBrowse__wrap>
+                            <B.PopBrowse__themeDown>
+                                <B.PopBrowse__categoriesSubTtl $Theme={theme}>Категория</B.PopBrowse__categoriesSubTtl>
+                                <B.PopBrowse__categoriesTheme
+                                    $topicColor={topicName[currentCard.topic.replaceAll(" ", "")]}
+                                >
+                                    <p>{currentCard.topic}</p>
+                                </B.PopBrowse__categoriesTheme>
+                            </B.PopBrowse__themeDown>
+                            <B.PopBrowse__btnBrowse>
+                                <B.PopBrowse__btnGroup>
+                                    <B.PopBrowse__edit
+                                        $Theme={theme}
+                                        $HoverNumber={"hover03"}
+                                    >
+                                        Редактировать задачу
+                                    </B.PopBrowse__edit>
+                                    <B.PopBrowse__delete
+                                        $HoverNumber={"hover03"}
+                                        $Theme={theme}
+                                        onClick={DeleteTasks}
+                                    >
+                                        Удалить задачу
+                                    </B.PopBrowse__delete>
+                                </B.PopBrowse__btnGroup>
+                                <Link to={AppRoutes.PAGE_MAIN}>
+                                    <B.PopBrowse__close $HoverNumber={"hover01"}>Закрыть</B.PopBrowse__close>
+                                </Link>
+                            </B.PopBrowse__btnBrowse>
+                            {/*<B.PopBrowse__btnHide>
                                     <B.PopBrowse__btnGroup>
                                         <B.PopBrowse__saveEdit $HoverNumber={"hover01"}>
                                             <a>Сохранить</a>
@@ -142,13 +139,10 @@ function PopBrowse() {
                                     </B.PopBrowse__btnGroup>
                                     <B.PopBrowse__saveEdit $HoverNumber={"hover03"}>Закрыть</B.PopBrowse__saveEdit>
                                 </B.PopBrowse__btnHide> */}
-                            </B.PopBrowse__content>
-                        </B.PopBrowse__block>
-                    </B.PopBrowse__container>
-                </B.PopBrowse>
-            ) : (
-                <Link to={AppRoutes.PAGE_MAIN}></Link>
-            )}
+                        </B.PopBrowse__content>
+                    </B.PopBrowse__block>
+                </B.PopBrowse__container>
+            </B.PopBrowse>
         </>
     );
 }
