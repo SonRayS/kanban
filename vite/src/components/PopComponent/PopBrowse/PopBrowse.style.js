@@ -346,9 +346,14 @@ export const RadioToolBar = styled.div`
     font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
-
+    scrollbar-width: 10px;
+    scrollbar-color: #565eef #d4dbe5;
+    cursor: pointer;
+    direction: ltr;
     letter-spacing: 0em;
     text-align: center;
     width: auto;
     overflow: auto;
+    padding: 1rem;
+    overflow-y: auto;
 `;

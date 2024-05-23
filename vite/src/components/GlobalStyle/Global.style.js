@@ -47,10 +47,7 @@ export const GlobalStyle = createGlobalStyle`
         --rdp-background-color: #d41d1d;
     }
 
-    .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
-        background-color: #565eef;
-    }
-    
+   
 `;
 
 export const Container = styled.div`
@@ -111,6 +108,7 @@ export const SwitchThemeRadioBtn = {
     &:hover {
         transition: background-color 300ms linear;
         background-color: #7ea150;
+
     }
     `,
 };

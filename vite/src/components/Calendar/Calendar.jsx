@@ -5,22 +5,35 @@ import ru from "date-fns/locale/ru";
 import { CalendarText, CalendarDivBlock } from "./Calendar.style";
 import useTheme from "../Hooks/useTheme";
 
-export default function Calendar({ selectedDate, setSelectedDate }) {
+export default function Calendar({ disabled, date, selectedDate, setSelectedDate }) {
     const { theme, toggleTheme } = useTheme();
 
-    let footer = <CalendarText>Пожалуйста, выберите дату.</CalendarText>;
+    let footer = (
+        <CalendarText>
+            {!date && <a>Выберите дату начала</a>}{" "}
+            {date && <a>Срок выподнения: {format(date, "dd.MM.yy", { locale: ru })}.</a>}
+        </CalendarText>
+    );
     if (selectedDate) {
-        footer = <CalendarText $Theme={theme}>Вы выбрали {format(selectedDate, "PP", { locale: ru })}.</CalendarText>;
+        footer = (
+            <CalendarText $Theme={theme}>Вы выбрали: {format(selectedDate, "dd.MM.yy", { locale: ru })}.</CalendarText>
+        );
     }
 
     return (
-        <CalendarDivBlock $Theme={theme}>
+        <CalendarDivBlock
+            $Theme={theme}
+            $Disabled={disabled}
+        >
             <DayPicker
                 mode="single"
-                selected={selectedDate}
-                onSelect={setSelectedDate}
+                selected={date || selectedDate}
+                onSelect={disabled ? () => true : setSelectedDate}
                 footer={footer}
                 locale={ru}
+                showOutsideDays="true"
+                minDate={format}
+                disableNavWhenOutRange="true"
             />
         </CalendarDivBlock>
     );

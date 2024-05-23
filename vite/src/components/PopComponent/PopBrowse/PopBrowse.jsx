@@ -10,15 +10,14 @@ import { useNavigate } from "react-router-dom";
 import { useTaskContext } from "../../../contexts/useUser";
 import useTheme from "../../Hooks/useTheme";
 import { topicName } from "../../CardForm/CardForm.style";
+import { putTodo } from "../../Api/EditTask/EditTask";
 
 function PopBrowse() {
     const { id } = useParams();
     const { user } = useUserContext();
     const { setCards } = useTaskContext();
     const navigate = useNavigate();
-    const [selectedDate, setSelectedDate] = useState(null);
     const [isEdited, setIsEdited] = useState(false);
-
     const { theme, toggleTheme } = useTheme();
 
     /* -----------------------------------------------CARD----------------------------- */
@@ -26,10 +25,11 @@ function PopBrowse() {
     const currentCard = cards.find((element) => id === element._id);
 
     /* -----------------------------------------------CARD----------------------------- */
-    /* useEffect(() => {
+    /*  useEffect(() => {
         console.log(currentCard);
-    }, []); */
-
+    }, []);
+ */
+    const [selectedDate, setSelectedDate] = useState(currentCard?.date);
     const isOpenMenu = () => {
         setIsEdited((prevState) => !prevState);
     };
@@ -53,16 +53,35 @@ function PopBrowse() {
         description: currentCard?.description,
         topic: currentCard?.topic,
         status: currentCard?.status,
-        date: currentCard?.date,
+        date: selectedDate || currentCard?.date,
     });
-    console.log(editTask);
-
+    /* console.log(editTask);
+     */
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditTask({
             ...editTask,
             [name]: value,
         });
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const taskData = {
+            ...editTask,
+            date: selectedDate,
+        };
+        /* console.log(taskData); */
+        putTodo({ token: user.token, id: id, taskData: taskData })
+            .then((response) => {
+                console.log(response);
+                setCards(response.tasks);
+                navigate(AppRoutes.PAGE_MAIN);
+            })
+            .catch((error) => {
+                console.log(error);
+                alert(error);
+            });
     };
 
     return (
@@ -204,6 +223,8 @@ function PopBrowse() {
                                 </B.PopBrowse__form>
                                 {/* ------------CALENDAR----------- */}
                                 <Calendar
+                                    disabled={!isEdited}
+                                    date={currentCard.date}
                                     selectedDate={selectedDate}
                                     setSelectedDate={setSelectedDate}
                                 />
@@ -247,7 +268,10 @@ function PopBrowse() {
                             {isEdited && (
                                 <B.PopBrowse__btnBrowse>
                                     <B.PopBrowse__btnGroup>
-                                        <B.PopBrowse__saveEdit $HoverNumber={"hover01"}>
+                                        <B.PopBrowse__saveEdit
+                                            $HoverNumber={"hover01"}
+                                            onClick={handleFormSubmit}
+                                        >
                                             Сохранить
                                         </B.PopBrowse__saveEdit>
                                         <B.PopBrowse__edit
