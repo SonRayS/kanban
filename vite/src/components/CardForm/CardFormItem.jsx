@@ -3,9 +3,8 @@ import * as C from "./CardForm.style";
 import useTheme from "../Hooks/useTheme";
 
 function CardForm({ statusTask, taskType, date, id }) {
-    /* console.log("status", statusTask, "taskType", taskType, "date", date, "id", id); */
     let currentDate = new Date(date);
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     return (
         <C.Card>

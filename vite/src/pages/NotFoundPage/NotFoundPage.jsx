@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import "../../App.css";
-import { PageNotFound } from "./NotFoundPage.style.js";
 import { GlobalStyle } from "../../components/GlobalStyle/Global.style.js";
 import { AppRoutes } from "../../components/AppRoutes/AppRoutes.js";
-import { PageNotFoundP, PageNotFoundImg, ModalBtnText, ModalButton } from "./NotFoundPage.style.js";
+import { PageNotFoundP, PageNotFoundImg, ModalBtnText, ModalButton, PageNotFound } from "./NotFoundPage.style.js";
 
 function NotFoundPage({ errorText }) {
     return (

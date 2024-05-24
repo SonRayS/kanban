@@ -6,7 +6,7 @@ import { CalendarText, CalendarDivBlock } from "./Calendar.style";
 import useTheme from "../Hooks/useTheme";
 
 export default function Calendar({ disabled, date, selectedDate, setSelectedDate }) {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     let footer = (
         <CalendarText>
@@ -15,9 +15,7 @@ export default function Calendar({ disabled, date, selectedDate, setSelectedDate
         </CalendarText>
     );
     if (selectedDate) {
-        footer = (
-            <CalendarText $Theme={theme}>Вы выбрали: {format(selectedDate, "dd.MM.yy", { locale: ru })}.</CalendarText>
-        );
+        footer = <CalendarText>Вы выбрали: {format(selectedDate, "dd.MM.yy", { locale: ru })}.</CalendarText>;
     }
 
     return (

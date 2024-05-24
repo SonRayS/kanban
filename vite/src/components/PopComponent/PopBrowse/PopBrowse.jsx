@@ -1,13 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../AppRoutes/AppRoutes";
-import { useParams } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import * as B from "./PopBrowse.style";
 import { useState } from "react";
-import { useUserContext } from "../../../contexts/useUser";
+import { useUserContext, useTaskContext } from "../../../contexts/useUser";
 import { DeleteTask } from "../../Api/DeleteTask/DeleteTask";
-import { useNavigate } from "react-router-dom";
-import { useTaskContext } from "../../../contexts/useUser";
 import useTheme from "../../Hooks/useTheme";
 import { topicName } from "../../CardForm/CardForm.style";
 import { putTodo } from "../../Api/EditTask/EditTask";
@@ -18,7 +15,7 @@ function PopBrowse() {
     const { setCards } = useTaskContext();
     const navigate = useNavigate();
     const [isEdited, setIsEdited] = useState(false);
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     /* -----------------------------------------------CARD----------------------------- */
     const { cards } = useTaskContext();
@@ -34,13 +31,11 @@ function PopBrowse() {
     const DeleteTasks = async (e) => {
         await DeleteTask({ taskData: currentCard, id, token: user.token })
             .then((response) => {
-                console.log(response);
                 navigate(AppRoutes.PAGE_MAIN);
                 location.reload();
             })
             .catch((error) => {
                 console.log(error);
-                alert(error);
                 navigate(AppRoutes.PAGE_NOT_FOUND);
             });
     };
@@ -52,8 +47,7 @@ function PopBrowse() {
         status: currentCard?.status,
         date: selectedDate || currentCard?.date,
     });
-    /* console.log(editTask);
-     */
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditTask({
@@ -68,10 +62,9 @@ function PopBrowse() {
             ...editTask,
             date: selectedDate,
         };
-        /* console.log(taskData); */
+
         putTodo({ token: user.token, id: id, taskData: taskData })
             .then((response) => {
-                console.log(response);
                 setCards(response.tasks);
                 navigate(AppRoutes.PAGE_MAIN);
             })

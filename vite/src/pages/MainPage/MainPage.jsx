@@ -18,10 +18,8 @@ function MainPage() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        /* console.log(user); */
         getTask({ token: user.token })
             .then((response) => {
-                /* console.log(response.tasks); */
                 setCards(response.tasks);
                 setIsLoading(false);
             })

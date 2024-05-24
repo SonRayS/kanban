@@ -4,9 +4,8 @@ import * as N from "./PopNewCard.style";
 import { PopBrowse__subLabelTtl } from "../PopBrowse/PopBrowse.style";
 import { useTasks } from "../../Hooks/useTasks";
 import { useUser } from "../../Hooks/useUser";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AppRoutes } from "../../AppRoutes/AppRoutes";
-import { Link } from "react-router-dom";
 import { AddTask } from "../../Api/AddTask/AddTask";
 import useTheme from "../../Hooks/useTheme";
 import { topicName } from "../../CardForm/CardForm.style";
@@ -18,7 +17,7 @@ function PopNewCard() {
 
     const [selectedDate, setSelectedDate] = useState(null);
 
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     const [newTask, setNewTask] = useState({
         title: "",
@@ -36,10 +35,9 @@ function PopNewCard() {
         await AddTask(taskData)
             .then((data) => {
                 if (data.error) {
-                    return console.log("Пожалуйста заполните все поля");
+                    return alert("Пожалуйста заполните все поля");
                 }
                 setCards(data.tasks);
-                console.log(data.tasks);
                 navigate(AppRoutes.PAGE_MAIN);
             })
             .catch((error) => {
