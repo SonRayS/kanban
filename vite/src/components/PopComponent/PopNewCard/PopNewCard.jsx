@@ -108,6 +108,7 @@ function PopNewCard() {
                             <Calendar
                                 selectedDate={selectedDate}
                                 setSelectedDate={setSelectedDate}
+                                disabled={false}
                             />
                             {/* ------------CALENDAR----------- */}
                         </N.PopNewCard__wrap>

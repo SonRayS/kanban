@@ -25,7 +25,7 @@ export default function Calendar({ disabled, date, selectedDate, setSelectedDate
         >
             <DayPicker
                 mode="single"
-                selected={date || selectedDate}
+                selected={selectedDate || date}
                 onSelect={disabled ? () => true : setSelectedDate}
                 footer={footer}
                 locale={ru}
