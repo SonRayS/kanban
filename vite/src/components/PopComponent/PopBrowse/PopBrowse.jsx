@@ -3,7 +3,7 @@ import { AppRoutes } from "../../AppRoutes/AppRoutes";
 import { useParams } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import * as B from "./PopBrowse.style";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useUserContext } from "../../../contexts/useUser";
 import { DeleteTask } from "../../Api/DeleteTask/DeleteTask";
 import { useNavigate } from "react-router-dom";
@@ -25,10 +25,7 @@ function PopBrowse() {
     const currentCard = cards.find((element) => id === element._id);
 
     /* -----------------------------------------------CARD----------------------------- */
-    /*  useEffect(() => {
-        console.log(currentCard);
-    }, []);
- */
+
     const [selectedDate, setSelectedDate] = useState(currentCard?.date);
     const isOpenMenu = () => {
         setIsEdited((prevState) => !prevState);
@@ -91,9 +88,9 @@ function PopBrowse() {
                     <B.PopBrowse__block $Theme={theme}>
                         <B.PopBrowse__content>
                             <B.PopBrowse__topBlock>
-                                <B.PopBrowse__ttl $Theme={theme}>Название задачи:{currentCard.title}</B.PopBrowse__ttl>
-                                <B.PopBrowse__color $topicColor={topicName[currentCard.topic]}>
-                                    <p>{currentCard.topic}</p>
+                                <B.PopBrowse__ttl $Theme={theme}>Название задачи:{currentCard?.title}</B.PopBrowse__ttl>
+                                <B.PopBrowse__color $topicColor={topicName[currentCard?.topic]}>
+                                    <p>{currentCard?.topic}</p>
                                 </B.PopBrowse__color>
                             </B.PopBrowse__topBlock>
                             <B.PopBrowse__status>
@@ -175,7 +172,7 @@ function PopBrowse() {
                                 {!isEdited && (
                                     <B.PopBrowse__statusThemes>
                                         <B.PopBrowse__statusTheme $topicColor={"_gray"}>
-                                            <p>{currentCard.status}</p>
+                                            <p>{currentCard?.status}</p>
                                         </B.PopBrowse__statusTheme>
                                     </B.PopBrowse__statusThemes>
                                 )}
@@ -201,7 +198,7 @@ function PopBrowse() {
                                                     id="textArea01"
                                                     readOnly=""
                                                     placeholder="Введите описание задачи..."
-                                                    defaultValue={currentCard.description}
+                                                    defaultValue={currentCard?.description}
                                                     disabled={true}
                                                 ></B.PopBrowse__area>
                                             </>
@@ -214,7 +211,7 @@ function PopBrowse() {
                                                     name="description"
                                                     id="textArea01"
                                                     placeholder="Описание задачи..."
-                                                    defaultValue={currentCard.description}
+                                                    defaultValue={currentCard?.description}
                                                     disabled={false}
                                                 ></B.PopBrowse__area>
                                             </>
@@ -224,7 +221,7 @@ function PopBrowse() {
                                 {/* ------------CALENDAR----------- */}
                                 <Calendar
                                     disabled={!isEdited}
-                                    date={currentCard.date}
+                                    date={currentCard?.date}
                                     selectedDate={selectedDate}
                                     setSelectedDate={setSelectedDate}
                                 />
@@ -237,9 +234,9 @@ function PopBrowse() {
                                             Категория
                                         </B.PopBrowse__categoriesSubTtl>
                                         <B.PopBrowse__categoriesTheme
-                                            $topicColor={topicName[currentCard.topic.replaceAll(" ", "")]}
+                                            $topicColor={topicName[currentCard?.topic.replaceAll(" ", "")]}
                                         >
-                                            <p>{currentCard.topic}</p>
+                                            <p>{currentCard?.topic}</p>
                                         </B.PopBrowse__categoriesTheme>
                                     </B.PopBrowse__themeDown>
                                     <B.PopBrowse__btnBrowse>

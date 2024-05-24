@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 
 export const themeContext = createContext(null);
+
 const isDarkTheme = window?.matchMedia("(prefers-color-scheme: dark)").matches;
 const defaultTheme = isDarkTheme ? "false" : "true";
 
