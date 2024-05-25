@@ -45,7 +45,6 @@ function PopBrowse() {
                         alert(error);
                     });
                 navigate(AppRoutes.PAGE_MAIN);
-                /*        location.reload(); */
             })
             .catch((error) => {
                 console.log(error);

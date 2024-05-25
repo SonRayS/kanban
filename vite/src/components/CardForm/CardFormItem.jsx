@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import * as C from "./CardForm.style";
 import useTheme from "../Hooks/useTheme";
 
-function CardForm({ statusTask, taskType, date, id }) {
+function CardForm({ statusTask, taskType, date, id, setActiveCard }) {
     let currentDate = new Date(date);
     const { theme } = useTheme();
 
     return (
-        <C.Card>
+        <C.Card
+            draggable
+            onDragStart={() => setActiveCard(id)}
+            onDragEnd={() => setActiveCard(null)}
+        >
             <C.CardsItem>
                 <C.CardsCard $Theme={theme}>
                     <C.CardGroup>

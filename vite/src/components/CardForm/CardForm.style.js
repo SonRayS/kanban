@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { SwitchThemeBG, SwitchThemeText } from "../GlobalStyle/Global.style";
+import {
+    SwitchThemeBG,
+    SwitchThemeBackGroundTask,
+    SwitchThemeLink,
+    SwitchThemeText,
+} from "../GlobalStyle/Global.style";
 
 export const topicStyles = {
     _purple: {
@@ -48,6 +53,7 @@ export const Card = styled.div`
     width: 100%;
     display: block;
     position: relative;
+    cursor: grab;
     @media screen and (max-width: 1200px) {
         width: 100%;
         display: flex;
@@ -72,6 +78,20 @@ export const CardsItem = styled.div`
     animation-timing-function: linear;
 `;
 
+export const shadowDrop = {
+    true: `
+        box-shadow: 0px 0px 4px 1px #000000;
+        color: #FFFFFF;
+        transition: background-color 300ms linear;
+        `,
+    false: `
+        box-shadow: 0px 0px 4px 1px #FFFFFF;
+        opacity: 0.4;
+        color: #FFFFFF;
+        transition: background-color 300ms linear;
+        `,
+};
+
 export const CardsCard = styled.div`
     width: 220px;
     height: 130px;
@@ -82,6 +102,14 @@ export const CardsCard = styled.div`
     justify-content: stretch;
     padding: 15px 13px 19px;
     border: 0.7px solid rgba(148, 166, 190, 0.4);
+
+    &:active {
+        -webkit-box-shadow: 0px 0px 16px 1px #33a7f4;
+        -moz-box-shadow: 0px 0px 16px 1px #33a7f4;
+        -ms-box-shadow: 0px 0px 16px 1px #33a7f4;
+        -o-box-shadow: 0px 0px 16px 1px #33a7f4;
+        ${({ $Theme }) => shadowDrop[$Theme] || console.log("none Theme")};
+    }
 
     @media screen and (max-width: 1200px) {
         width: 220px;
