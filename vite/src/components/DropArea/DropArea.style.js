@@ -5,6 +5,7 @@ export const statusDrop = {
         width: 220px;
         height: 130px;
         border-radius: 10px;
+        display:flex;
         align-content: center;
         justify-content: center;
         align-items: center;
@@ -14,10 +15,13 @@ export const statusDrop = {
         margin-top: 16px;
         font-size: 23px;
         border: solid #b8bbec 1px;
+        padding: 15px
+        columns: #FFFFFF
+        transition: all 0.3s ease-in-out;
         `,
     false: `
         opacity: 0;
-        color: #FFFFFF;
+       
         `,
 };
 

@@ -75,6 +75,9 @@ function PopBrowse() {
             date: selectedDate,
         };
         setIsLoading(true);
+
+        console.log(taskData);
+
         putTodo({ token: user.token, id: id, taskData: taskData })
             .then((response) => {
                 setIsLoading(false);
