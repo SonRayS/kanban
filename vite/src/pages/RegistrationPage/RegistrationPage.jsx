@@ -23,7 +23,7 @@ function RegistrationPage() {
 
         setRegData({
             ...regData, // Копируем текущие данные из состояния
-            [name]: value, // Обновляем нужное поле
+            [name]: value,
         });
     };
 
