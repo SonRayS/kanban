@@ -17,7 +17,7 @@ const DropArea = ({ onDrop }) => {
             }}
             onDragOver={(e) => e.preventDefault()}
         >
-            Drop Here
+            Drop Here {setShowDrop}
         </S.selectionTask>
     );
 };

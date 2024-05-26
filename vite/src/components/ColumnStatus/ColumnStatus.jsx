@@ -23,7 +23,7 @@ function ColumnStatus({ status, CardList }) {
             date,
         };
 
-        /* console.log(taskData); */
+        console.log(taskData);
 
         putTodo({ token: user.token, id, taskData: taskData })
             .then((response) => {
@@ -48,17 +48,19 @@ function ColumnStatus({ status, CardList }) {
                 <Card>
                     {CardList.map((el) => (
                         <React.Fragment key={el._id}>
-                            <DropArea
-                                onDrop={{
-                                    token: user.token,
-                                    id: el._id,
-                                    title: el.title,
-                                    description: el._description,
-                                    topic: el.topic,
-                                    status,
-                                    date: el.date,
-                                }}
-                            />
+                            {/* <DropArea
+                                onDrop={() =>
+                                    onDrop({
+                                        token: user.token,
+                                        id: el._id,
+                                        title: el.title,
+                                        description: el._description,
+                                        topic: el.topic,
+                                        status,
+                                        date: el.date,
+                                    })
+                                }
+                            /> */}
                             <CardForm
                                 statusTask={el.topic}
                                 taskType={el.title}

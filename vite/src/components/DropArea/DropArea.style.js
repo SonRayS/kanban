@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const statusDrop = {
     true: `
-        width: 220px;
-        height: 130px;
+    
         border-radius: 10px;
         display:flex;
         align-content: center;
@@ -11,8 +10,8 @@ export const statusDrop = {
         align-items: center;
         opacity: 1;
         color: #FFFFFF;
-        margin-bottom: 16px;
-        margin-top: 16px;
+        margin-bottom: 8px;
+        margin-top: 8px;
         font-size: 23px;
         border: solid #b8bbec 1px;
         padding: 15px
@@ -20,7 +19,7 @@ export const statusDrop = {
         transition: all 0.3s ease-in-out;
         `,
     false: `
-        opacity: 0;
+        opacity: 1;
        
         `,
 };
