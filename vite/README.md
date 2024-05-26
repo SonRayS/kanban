@@ -3,7 +3,11 @@
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://habrastorage.org/getpro/habr/post_images/3db/ac4/5df/3dbac45df51c33b0bd63621081afbe29.jpg)
 
 ## Это мой проект с канбан-доской 
+<<<<<<< HEAD
 ### Репозиторий проекта: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
+=======
+### Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
+>>>>>>> 482dd5b3f9bd49ea192dd2db59d60f966949f29b
 
 # Приемочное тестирование 
 ## Пользователь может: 
@@ -24,6 +28,7 @@
 ### 4. Отправить пустые данные во вкладке создание задачи.
 
 ## Отчет:
+<<<<<<< HEAD
 ### Указанные функции программы работают корректно, техническое задание соответствует заданному макету, условии тех. задачи учтены правильно.
 
 # Гайд по установке:
@@ -33,6 +38,12 @@
 ### 4. Отправить пустые данные во вкладке создание задачи.
 
 ## Аннотация:
+=======
+### Указанные функции программы работают корректно, техническое задание соответствует заданному макету, условии учтены правильно.
+
+# Гайд по установке:
+
+>>>>>>> 482dd5b3f9bd49ea192dd2db59d60f966949f29b
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
