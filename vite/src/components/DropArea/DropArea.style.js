@@ -19,7 +19,7 @@ export const statusDrop = {
         transition: all 0.3s ease-in-out;
         `,
     false: `
-        opacity: 1;
+        opacity: 0;
        
         `,
 };

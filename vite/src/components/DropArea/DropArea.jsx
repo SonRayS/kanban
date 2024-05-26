@@ -6,18 +6,18 @@ const DropArea = ({ onDrop }) => {
 
     return (
         <S.selectionTask
+            $statDrop={showDrop}
             onDragEnter={() => {
                 setShowDrop(true);
             }}
             onDragLeave={() => setShowDrop(false)}
-            $statDrop={showDrop}
             onDrop={() => {
                 onDrop();
                 setShowDrop(false);
             }}
             onDragOver={(e) => e.preventDefault()}
         >
-            Drop Here {setShowDrop}
+            Drop Here
         </S.selectionTask>
     );
 };
