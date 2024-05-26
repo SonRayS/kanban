@@ -2,7 +2,7 @@
 ### student Skypro ![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif) 
 
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg)
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://giphy.com/gifs/bored-sleepy-boring-LTYT5GTIiAMBa)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
