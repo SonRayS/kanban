@@ -49,7 +49,14 @@
 
 ## Гайд по установке:
 
-### 4. Отправить пустые данные во вкладке создание задачи.
+### 1. Url для скачивания ( https://github.com/SonRayS/skypro-kanban/tree/main ).
+### 2. (<> Code) => Download ZIP => разархивировать.
+### 3. Удалить папку package.json из рабочего пространства. 
+### 4. Открыть терминал и написать команда npm i. 
+### 5. Запустить проект написав в консоли npm run dev.
+
+## Аннотации:
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
