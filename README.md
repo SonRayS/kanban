@@ -1,11 +1,9 @@
-# Hi there, I'm [Ilia](https://gist.github.com/SonRayS) 
+# Проект - канбан-доска
 
-## Проект - канбан-доска
-
-### Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
+## Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
 
 
-# Приемочное тестирование 
+## Приемочное тестирование 
 
 
 ## Пользователь может: 
