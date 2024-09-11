@@ -1,4 +1,4 @@
-# Проект - канбан-доска
+# "Kanban-board"
 
  Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
 
