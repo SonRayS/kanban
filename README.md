@@ -1,6 +1,6 @@
 # Проект - канбан-доска
 
-## Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
+ Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
 
 
 ## Приемочное тестирование 
