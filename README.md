@@ -1,8 +1,5 @@
 # "Kanban-board"
 
- Main repository: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
-
-
 ## User can: 
 
 ### 1. Register. 
