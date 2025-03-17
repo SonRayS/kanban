@@ -1,58 +1,58 @@
 # "Kanban-board"
 
- Основной репозиторий: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
+ Main repository: ( https://github.com/SonRayS/skypro-kanban/tree/main/vite )
 
 
-## Пользователь может: 
+## User can: 
 
-### 1. Зарегистрироваться. 
-### 2. Авторизоваться. 
-### 3. Создать задачу с указанием: даты, название, описанием, категорией. 
-### 4. Удалить задачу.
-### 5. Посмотреть полное описание каждой задачи.
-### 6. Редактировать задачу (дату, название, описание, категорию).
-### 7. Изменить тему сайта (темная / светлая) по своему вкусу со вкладок ( авторизованного / неавторизованного пользователя ). 
-### 8. Выйти из аккаунта. 
-### 9. Редактировать статус задачи с помощью drag and drop. 
-
-
-## Пользователь не может: 
-
-### 1. Отправить пустые данные в поля регистрации. 
-### 2. Отправить пустые данные в поля авторизации. 
-### 3. Редактировать задачу из описания. 
-### 4. Отправить пустые данные во вкладке создание задачи.
+### 1. Register. 
+### 2. Authorize. 
+### 3. Create a task with: date, title, description, category. 
+### 4. Delete task.
+### 5. View full description of each task.
+### 6. Edit the task (date, title, description, category).
+### 7. Change the site theme (dark / light) to your liking from the tabs ( authorized / unauthorized user ). 
+### 8. Log out of the account. 
+### 9. Edit task status using drag and drop. 
 
 
-## Отчет:
+### User cannot: 
 
-### Указанные функции программы работают корректно, техническое задание соответствует заданному макету, условии тех. задачи учтены правильно.
-
-
-# Гайд по установке:
-### 1. Отправить пустые данные в поля регистрации. 
-### 2. Отправить пустые данные в поля авторизации. 
-### 3. Редактировать задачу из описания. 
-### 4. Отправить пустые данные во вкладке создание задачи.
-
-## Аннотация:
-
-### Указанные функции программы работают корректно, техническое задание соответствует заданному макету, условии учтены правильно.
-
-## Гайд по установке:
-
-### 1. Url для скачивания ( https://github.com/SonRayS/skypro-kanban/tree/main ).
-### 2. (<> Code) => Download ZIP => разархивировать.
-### 3. Удалить папку package.json из рабочего пространства. 
-### 4. Открыть терминал и написать команда npm i. 
-### 5. Запустить проект написав в консоли npm run dev.
+### 1. Send blank data in the registration fields. 
+### 2. Send blank data to authorization fields. 
+### 3. Edit a task from the description. 
+### 4. Send blank data in the task creation tab.
 
 
-## Тестирование:
-### Открыть терминал и написать команда npm run lint.
+### Report:
+
+### The specified program functions work correctly, the technical task corresponds to the specified layout, the technical task conditions are taken into account correctly.
 
 
-## Аннотации:
+### Installation Guide:
+### 1. Send blank data in the registration fields. 
+### 2. Send blank data in the authorization fields. 
+### 3. Edit the task from the description. 
+### 4. Send empty data in the task creation tab.
+
+### Abstract:
+
+### The specified functions of the program work correctly, the technical task corresponds to the given layout, the conditions are taken into account correctly.
+
+## Installation guide:
+
+### 1. Url for downloading ( https://github.com/SonRayS/skypro-kanban/tree/main ).
+### 2. (&lt;&gt; Code) =&gt; Download ZIP =&gt; unzip.
+### 3. Remove the package.json folder from the workspace. 
+### 4. Open a terminal and write the command npm i. 
+### 5. Run the project by writing npm run dev in the console.
+
+
+## Testing:
+### Open a terminal and write the command npm run lint.
+
+
+### Abstract:
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
